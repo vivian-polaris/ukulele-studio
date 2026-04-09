@@ -826,17 +826,38 @@ footer a:hover { color:var(--honey); }
         <input type="email" id="email" name="email" placeholder="確認信會寄到這裡" required>
       </div>
 
+      <div>
+        <p class="time-label">你最想唱哪種歌？（可複選）</p>
+        <p style="font-size:0.8rem; color:rgba(255,255,255,0.3); margin-bottom:0.8rem; line-height:1.7;">
+          烏克麗麗只要學幾個和弦，就可以彈奏所有你喜愛的歌曲。
+        </p>
+        <div class="time-options">
+          <label class="time-option">
+            <input type="checkbox" name="genre[]" value="初學班—從零開始">
+            <span>🎸 初學班——從零開始，第一堂就彈出一首歌</span>
+          </label>
+          <label class="time-option">
+            <input type="checkbox" name="genre[]" value="K-pop彈唱">
+            <span>🎤 K-pop 彈唱——BTS、BLACKPINK、NewJeans…</span>
+          </label>
+          <label class="time-option">
+            <input type="checkbox" name="genre[]" value="國語老歌彈唱">
+            <span>🌙 國語老歌彈唱——鄧麗君、周華健、張學友…</span>
+          </label>
+          <label class="time-option">
+            <input type="checkbox" name="genre[]" value="英語老歌彈唱">
+            <span>🎵 英語老歌彈唱——Beatles、ABBA、Taylor Swift…</span>
+          </label>
+          <label class="time-option">
+            <input type="checkbox" name="genre[]" value="抖音彈唱">
+            <span>✨ 抖音彈唱——最紅的抖音神曲</span>
+          </label>
+        </div>
+      </div>
+
       <div class="form-group">
-        <label for="course">想上哪種課</label>
-        <select id="course" name="course" required>
-          <option value="" disabled selected>請選擇課程種類</option>
-          <option value="初學班">初學班（完全零基礎）</option>
-          <option value="K-pop彈唱">K-pop 彈唱</option>
-          <option value="國語老歌彈唱">國語老歌彈唱</option>
-          <option value="英語老歌彈唱">英語老歌彈唱</option>
-          <option value="抖音彈唱">抖音彈唱</option>
-          <option value="不確定，老師建議">不確定，讓老師建議</option>
-        </select>
+        <label for="fav_songs">你最想學的歌曲（填歌名就好）</label>
+        <input type="text" id="fav_songs" name="fav_songs" placeholder="例：甜蜜蜜、Yesterday、Dynamite…">
       </div>
 
       <div>
