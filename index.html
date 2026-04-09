@@ -429,33 +429,83 @@ footer a:hover { color:var(--honey); }
 .reveal.on { opacity:1; transform:none; }
 
 /* ── RESPONSIVE ── */
-@media(max-width:900px) {
-  .course-grid .course-card:nth-child(4),
-  .course-grid .course-card:nth-child(5) { grid-column:auto; margin-left:0; }
-}
 @media(max-width:768px) {
-  .facts { grid-template-columns:repeat(2,1fr); }
-  .cards { grid-template-columns:1fr; }
+  /* Nav */
+  nav { padding:0.9rem 1.2rem; }
+  nav.scrolled { padding:0.7rem 1.2rem; }
+  .nav-links { display:none; }
+  .logo { font-size:1.1rem; }
+  /* Floating mobile CTA */
+  .mobile-cta {
+    display:block; position:fixed; bottom:1.2rem; left:50%; transform:translateX(-50%);
+    z-index:400; background:var(--honey); color:var(--deep);
+    padding:0.85rem 2rem; border-radius:30px; font-size:0.85rem; font-weight:700;
+    letter-spacing:0.06em; text-decoration:none; box-shadow:0 4px 20px rgba(212,168,64,0.5);
+    white-space:nowrap;
+  }
+  /* Hero */
+  .hero-content { padding:1.2rem; }
+  .hero h1 { font-size:1.9rem; line-height:1.25; }
+  .hero-sub { font-size:0.88rem; }
+  .hero-desc { font-size:0.85rem; margin-bottom:2rem; }
+  .hero-btns { flex-direction:column; align-items:center; gap:0.8rem; }
+  .btn-fill, .btn-ghost { width:100%; max-width:280px; text-align:center; }
+  /* Facts */
+  .facts { grid-template-columns:repeat(2,1fr); padding:2rem 1rem; }
+  .fact-n { font-size:2rem; }
+  /* Section padding */
+  section { padding:3.5rem 1.2rem; }
+  .reasons-wrap { padding:3.5rem 1.2rem; }
+  .courses-wrap { padding:3.5rem 1.2rem; }
+  .schedule-wrap { padding:3.5rem 1.2rem; }
+  .teacher-wrap { padding:3.5rem 1.2rem; }
+  .faq-wrap { padding:3.5rem 1.2rem; }
+  .contact-wrap { padding:4rem 1.2rem; }
+  .booking-section { padding:3.5rem 1.2rem; }
+  .videos-wrap { padding:3.5rem 1.2rem; }
+  /* Immersive */
+  .immersive-bg { background-attachment:scroll; }
+  .immersive-content { padding:3.5rem 1.5rem; max-width:100%; }
+  .immersive-content h2 { font-size:1.7rem; }
+  /* Cards */
+  .cards { grid-template-columns:1fr; gap:1rem; }
+  .card { padding:1.8rem 1.4rem; }
+  /* Courses */
+  .courses-bg { background-attachment:scroll; }
   .course-grid { grid-template-columns:1fr; }
   .course-card:nth-child(5) { max-width:100%; }
-  .schedule-grid { grid-template-columns:1fr; }
-  .class-box { grid-template-columns:1fr; gap:0; }
-  .immersive-bg { background-attachment:scroll; }
-  .courses-bg { background-attachment:scroll; }
+  .course-card { padding:1.6rem 1.4rem; }
+  /* Videos */
+  .videos-bg { background-attachment:scroll; }
+  .vid-grid { grid-template-columns:1fr; gap:1.2rem; }
+  /* Schedule */
+  .schedule-grid { grid-template-columns:1fr !important; max-width:100% !important; }
+  /* Class box */
+  .class-box { grid-template-columns:1fr; gap:0; padding:1.8rem 1.4rem; }
+  /* Teacher */
   .teacher-bg { background-attachment:scroll; }
-  nav { padding:1rem 1.5rem; }
-  nav.scrolled { padding:0.7rem 1.5rem; }
-  .nav-links { display:none; }
-  .immersive-content { padding:5rem 1.5rem; max-width:100%; }
+  .teacher-name { font-size:1.6rem; }
+  .cred-item { padding:1rem 1.2rem; font-size:0.85rem; }
+  /* FAQ */
+  .faq-q { font-size:0.95rem; }
+  /* Form */
   .form-row { grid-template-columns:1fr; }
+  .booking-inner h2 { font-size:1.6rem; }
+  /* h2 global */
+  h2 { font-size:1.8rem; }
 }
-@media(max-width:480px) {
-  .fact-n { font-size:2rem; }
-  .hero h1 { font-size:2rem; }
+@media(max-width:400px) {
+  .hero h1 { font-size:1.6rem; }
+  .facts { padding:1.5rem 0.8rem; }
+  .fact-n { font-size:1.7rem; }
+  .fact-l { font-size:0.58rem; }
 }
 </style>
 </head>
 <body>
+
+<!-- MOBILE FLOATING CTA -->
+<a href="#booking" class="mobile-cta" style="display:none;" id="mobileCta">♪ 立即報名體驗課</a>
 
 <!-- TICKER -->
 <div class="ticker-bar">
@@ -918,6 +968,11 @@ footer a:hover { color:var(--honey); }
 </footer>
 
 <script>
+// Mobile CTA button
+if (window.innerWidth <= 768) {
+  document.getElementById('mobileCta').style.display = 'block';
+}
+
 // Sticky nav
 const nav = document.getElementById('nav');
 const ticker = document.querySelector('.ticker-bar');
