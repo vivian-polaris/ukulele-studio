@@ -222,13 +222,14 @@ h2 em { color:var(--koa); font-style:normal; font-weight:bold; }
 .courses-inner .sec-tag { color:rgba(212,168,64,0.7); }
 .courses-inner .lead { color:rgba(255,255,255,0.45); }
 .course-grid {
-  display:grid; grid-template-columns:repeat(3,1fr); gap:1.5rem; margin-top:2.5rem;
+  display:grid; grid-template-columns:repeat(2,1fr); gap:1.5rem; margin-top:2.5rem;
 }
 .course-card {
   background:rgba(255,255,255,0.05); border:1px solid rgba(212,168,64,0.18);
   border-radius:3px; padding:2rem 1.8rem;
   transition: background 0.3s, border-color 0.3s, transform 0.3s;
 }
+.course-card:nth-child(5) { grid-column: 1 / -1; max-width:50%; margin:0 auto; width:100%; }
 .course-card:hover { background:rgba(212,168,64,0.1); border-color:rgba(212,168,64,0.5); transform:translateY(-3px); }
 .course-tag {
   font-size:0.58rem; letter-spacing:0.22em; text-transform:uppercase;
@@ -240,9 +241,6 @@ h2 em { color:var(--koa); font-style:normal; font-weight:bold; }
   margin-top:1rem; padding-top:1rem; border-top:1px solid rgba(255,255,255,0.08);
   font-size:0.77rem; color:rgba(212,168,64,0.6); line-height:1.7;
 }
-/* 5-card layout: 3 top + 2 centered bottom */
-.course-grid .course-card:nth-child(4) { grid-column:1 / 2; margin-left:calc(50% + 0.75rem); }
-.course-grid .course-card:nth-child(5) { grid-column:2 / 3; margin-left: 0; }
 
 /* ── VIDEOS ── */
 .videos-wrap { position:relative; padding:6rem 2rem; overflow:hidden; }
@@ -439,6 +437,7 @@ footer a:hover { color:var(--honey); }
   .facts { grid-template-columns:repeat(2,1fr); }
   .cards { grid-template-columns:1fr; }
   .course-grid { grid-template-columns:1fr; }
+  .course-card:nth-child(5) { max-width:100%; }
   .schedule-grid { grid-template-columns:1fr; }
   .class-box { grid-template-columns:1fr; gap:0; }
   .immersive-bg { background-attachment:scroll; }
@@ -553,8 +552,8 @@ footer a:hover { color:var(--honey); }
   <div class="courses-bg"></div>
   <div class="courses-inner">
     <span class="sec-tag">課程種類</span>
-    <h2>選你最想唱的<em>那種歌</em></h2>
-    <p class="lead">五種課型，每堂可以選。想彈什麼就來學什麼。</p>
+    <h2>你想唱什麼，<em>我們就彈什麼</em></h2>
+    <p class="lead">烏克麗麗只要學幾個和弦，就可以彈奏所有你喜愛的歌曲。</p>
     <div class="course-grid">
 
       <div class="course-card reveal">
