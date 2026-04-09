@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>歡唱烏克麗麗 · 上班族午休班 · 台北小班制</title>
-<meta name="description" content="台北上班族午休烏克麗麗小班。週二、四、五 12:15–13:15，每堂最多6人。初學班、K-pop彈唱、國語老歌、英語老歌、抖音彈唱，零基礎歡迎。">
+<meta name="description" content="台北烏克麗麗小班。每週四 11:00–12:00 初級班、12:30–13:30 進階班，每堂最多6人。K-pop彈唱、國語老歌、英語老歌、抖音彈唱，零基礎歡迎。">
 
 <style>
 :root {
@@ -244,6 +244,23 @@ h2 em { color:var(--koa); font-style:normal; font-weight:bold; }
 .course-grid .course-card:nth-child(4) { grid-column:1 / 2; margin-left:calc(50% + 0.75rem); }
 .course-grid .course-card:nth-child(5) { grid-column:2 / 3; margin-left: 0; }
 
+/* ── VIDEOS ── */
+.videos-wrap { position:relative; padding:6rem 2rem; overflow:hidden; }
+.videos-bg {
+  position:absolute; inset:0;
+  background-image: url('https://images.unsplash.com/photo-1556449895-a33c9dba33dd?auto=format&fit=crop&w=1920&q=85');
+  background-size:cover; background-position:center;
+  background-attachment:fixed;
+  filter:brightness(0.15) saturate(0.4);
+}
+.videos-inner { position:relative; z-index:2; max-width:800px; margin:0 auto; }
+.videos-inner h2 { color:white; }
+.videos-inner .sec-tag { color:rgba(212,168,64,0.7); }
+.videos-inner .lead { color:rgba(255,255,255,0.45); }
+.vid-grid { display:grid; grid-template-columns:repeat(2,1fr); gap:2rem; margin-top:2.5rem; }
+.vid-frame { aspect-ratio:16/9; border-radius:3px; overflow:hidden; box-shadow:0 8px 40px rgba(0,0,0,0.5); }
+.vid-frame iframe { width:100%; height:100%; border:none; }
+
 /* ── SCHEDULE ── */
 .schedule-wrap { background:var(--cream); padding:6rem 2rem; }
 .schedule-inner { max-width:880px; margin:0 auto; }
@@ -445,9 +462,9 @@ footer a:hover { color:var(--honey); }
 <div class="ticker-bar">
   <a href="#booking">
     <div class="ticker-track">
-      <span class="ticker-item"><span class="ticker-dot">♪</span> <strong>初學班招生中</strong> &nbsp;·&nbsp; 上班族午休限定 &nbsp;·&nbsp; 週二 · 四 · 五 &nbsp;·&nbsp; 12:15 起 &nbsp;·&nbsp; 每堂最多6人 <span class="ticker-cta">立即報名 →</span></span>
+      <span class="ticker-item"><span class="ticker-dot">♪</span> <strong>每週四開課</strong> &nbsp;·&nbsp; 初級班 11:00–12:00 &nbsp;·&nbsp; 進階班 12:30–13:30 &nbsp;·&nbsp; 每堂最多6人 <span class="ticker-cta">立即報名 →</span></span>
       <span class="ticker-item"><span class="ticker-dot">♪</span> K-pop 彈唱 &nbsp;·&nbsp; 國語老歌 &nbsp;·&nbsp; 英語老歌 &nbsp;·&nbsp; 抖音彈唱 &nbsp;·&nbsp; <strong>歡唱烏克麗麗</strong> &nbsp;·&nbsp; 零基礎歡迎 <span class="ticker-cta">看課程 →</span></span>
-      <span class="ticker-item"><span class="ticker-dot">♪</span> <strong>初學班招生中</strong> &nbsp;·&nbsp; 上班族午休限定 &nbsp;·&nbsp; 週二 · 四 · 五 &nbsp;·&nbsp; 12:15 起 &nbsp;·&nbsp; 每堂最多6人 <span class="ticker-cta">立即報名 →</span></span>
+      <span class="ticker-item"><span class="ticker-dot">♪</span> <strong>每週四開課</strong> &nbsp;·&nbsp; 初級班 11:00–12:00 &nbsp;·&nbsp; 進階班 12:30–13:30 &nbsp;·&nbsp; 每堂最多6人 <span class="ticker-cta">立即報名 →</span></span>
       <span class="ticker-item"><span class="ticker-dot">♪</span> K-pop 彈唱 &nbsp;·&nbsp; 國語老歌 &nbsp;·&nbsp; 英語老歌 &nbsp;·&nbsp; 抖音彈唱 &nbsp;·&nbsp; <strong>歡唱烏克麗麗</strong> &nbsp;·&nbsp; 零基礎歡迎 <span class="ticker-cta">看課程 →</span></span>
     </div>
   </a>
@@ -474,7 +491,7 @@ footer a:hover { color:var(--honey); }
     <h1>午休30分鐘，<em>彈出你的第一首歌</em></h1>
     <p class="hero-sub">不需要音樂基礎，只需要一顆想唱的心</p>
     <p class="hero-desc">
-      週二、四、五午休出發。12:15 開始，12:45 或 13:15 結束。<br>
+      每週四開課。初級班 11:00–12:00，進階班 12:30–13:30。<br>
       每堂最多 6 人，老師一定看得到你。
     </p>
     <div class="hero-btns">
@@ -520,7 +537,7 @@ footer a:hover { color:var(--honey); }
       <div class="card reveal">
         <div class="card-ico">⏰</div>
         <h3>上班族設計</h3>
-        <p>12:15 開始，30 分鐘一堂。不需要請假，不佔晚上時間，不打亂你的生活節奏。午休出發，下午繼續工作，精神更好。</p>
+        <p>每週四，初級班 11:00–12:00，進階班 12:30–13:30。整整一小時，學得紮實，不趕也不亂。不需要請假，不佔你的晚上。</p>
       </div>
       <div class="card reveal">
         <div class="card-ico">🎵</div>
@@ -589,70 +606,70 @@ footer a:hover { color:var(--honey); }
   </div>
 </div>
 
+<!-- VIDEOS -->
+<div class="videos-wrap">
+  <div class="videos-bg"></div>
+  <div class="videos-inner">
+    <span class="sec-tag">老師影片</span>
+    <h2>先聽聽<em>烏克麗麗的聲音</em></h2>
+    <p class="lead">演奏與彈唱，讓你感受一下這把小琴能帶出什麼樣的音樂。</p>
+    <div class="vid-grid">
+      <div class="vid-frame reveal">
+        <iframe src="https://www.youtube.com/embed/jNik1nj9HIg"
+          title="烏克麗麗演奏" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope"
+          allowfullscreen loading="lazy"></iframe>
+      </div>
+      <div class="vid-frame reveal">
+        <iframe src="https://www.youtube.com/embed/ZdsD1Y4ql_M"
+          title="烏克麗麗彈唱" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope"
+          allowfullscreen loading="lazy"></iframe>
+      </div>
+    </div>
+  </div>
+</div>
+
 <!-- SCHEDULE -->
 <div class="schedule-wrap" id="schedule">
   <div class="schedule-inner">
     <span class="sec-tag">上課時間</span>
-    <h2>週二、四、五，<em>午休出發</em></h2>
-    <p class="lead">每節 30 分鐘，兩個時段任選。不用請假，不佔你的晚上。</p>
-    <div class="schedule-grid">
+    <h2>每週四，<em>兩班制</em></h2>
+    <p class="lead">初級班與進階班各一小時，不用請假，不佔你的晚上。</p>
+    <div class="schedule-grid" style="grid-template-columns:repeat(2,1fr); max-width:620px; margin-left:auto; margin-right:auto;">
       <div class="day-col reveal">
         <div class="day-header">
-          <div class="day-name">週二</div>
-          <div class="day-en">Tuesday</div>
+          <div class="day-name">初級班</div>
+          <div class="day-en">Beginner · Thursday</div>
         </div>
         <div class="time-slot">
-          <div class="slot-num">1</div>
+          <div class="slot-num">♩</div>
           <div class="slot-info">
-            <div class="slot-time">12:15 – 12:45</div>
-            <div class="slot-label">早場午休</div>
+            <div class="slot-time">11:00 – 12:00</div>
+            <div class="slot-label">每週四 · 60分鐘</div>
           </div>
         </div>
-        <div class="time-slot">
-          <div class="slot-num">2</div>
+        <div class="time-slot" style="border-top:none;">
+          <div class="slot-num" style="font-size:0.9rem; color:rgba(192,120,64,0.5);">✦</div>
           <div class="slot-info">
-            <div class="slot-time">12:45 – 13:15</div>
-            <div class="slot-label">晚場午休</div>
+            <div class="slot-label" style="font-size:0.82rem; color:var(--mid);">零基礎歡迎，從第一堂就彈出一首歌</div>
           </div>
         </div>
       </div>
       <div class="day-col reveal">
         <div class="day-header">
-          <div class="day-name">週四</div>
-          <div class="day-en">Thursday</div>
+          <div class="day-name">進階班</div>
+          <div class="day-en">Advanced · Thursday</div>
         </div>
         <div class="time-slot">
-          <div class="slot-num">1</div>
+          <div class="slot-num">♩</div>
           <div class="slot-info">
-            <div class="slot-time">12:15 – 12:45</div>
-            <div class="slot-label">早場午休</div>
+            <div class="slot-time">12:30 – 13:30</div>
+            <div class="slot-label">每週四 · 60分鐘</div>
           </div>
         </div>
-        <div class="time-slot">
-          <div class="slot-num">2</div>
+        <div class="time-slot" style="border-top:none;">
+          <div class="slot-num" style="font-size:0.9rem; color:rgba(192,120,64,0.5);">✦</div>
           <div class="slot-info">
-            <div class="slot-time">12:45 – 13:15</div>
-            <div class="slot-label">晚場午休</div>
-          </div>
-        </div>
-      </div>
-      <div class="day-col reveal">
-        <div class="day-header">
-          <div class="day-name">週五</div>
-          <div class="day-en">Friday</div>
-        </div>
-        <div class="time-slot">
-          <div class="slot-num">1</div>
-          <div class="slot-info">
-            <div class="slot-time">12:15 – 12:45</div>
-            <div class="slot-label">早場午休</div>
-          </div>
-        </div>
-        <div class="time-slot">
-          <div class="slot-num">2</div>
-          <div class="slot-info">
-            <div class="slot-time">12:45 – 13:15</div>
-            <div class="slot-label">晚場午休</div>
+            <div class="slot-label" style="font-size:0.82rem; color:var(--mid);">有基礎者，挑戰更豐富的編曲與彈唱</div>
           </div>
         </div>
       </div>
@@ -707,7 +724,7 @@ footer a:hover { color:var(--honey); }
         <div class="info-ico">🕐</div>
         <div>
           <div class="info-label">上課時間</div>
-          <div class="info-val">週二、四、五<br>12:15–12:45 ／ 12:45–13:15<br><strong>任選時段</strong></div>
+          <div class="info-val">每週四<br>初級班 11:00–12:00<br>進階班 12:30–13:30</div>
         </div>
       </div>
       <div class="info-item">
@@ -861,31 +878,15 @@ footer a:hover { color:var(--honey); }
       </div>
 
       <div>
-        <p class="time-label">偏好上課時段（可複選）</p>
+        <p class="time-label">想上哪個班？</p>
         <div class="time-options">
           <label class="time-option">
-            <input type="checkbox" name="time[]" value="週二 12:15-12:45">
-            <span>週二 · 12:15 – 12:45</span>
+            <input type="checkbox" name="time[]" value="初級班 週四 11:00-12:00">
+            <span>初級班 · 週四 11:00 – 12:00</span>
           </label>
           <label class="time-option">
-            <input type="checkbox" name="time[]" value="週二 12:45-13:15">
-            <span>週二 · 12:45 – 13:15</span>
-          </label>
-          <label class="time-option">
-            <input type="checkbox" name="time[]" value="週四 12:15-12:45">
-            <span>週四 · 12:15 – 12:45</span>
-          </label>
-          <label class="time-option">
-            <input type="checkbox" name="time[]" value="週四 12:45-13:15">
-            <span>週四 · 12:45 – 13:15</span>
-          </label>
-          <label class="time-option">
-            <input type="checkbox" name="time[]" value="週五 12:15-12:45">
-            <span>週五 · 12:15 – 12:45</span>
-          </label>
-          <label class="time-option">
-            <input type="checkbox" name="time[]" value="週五 12:45-13:15">
-            <span>週五 · 12:45 – 13:15</span>
+            <input type="checkbox" name="time[]" value="進階班 週四 12:30-13:30">
+            <span>進階班 · 週四 12:30 – 13:30</span>
           </label>
         </div>
       </div>
