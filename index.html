@@ -1,0 +1,948 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>歡唱烏克麗麗 · 上班族午休班 · 台北小班制</title>
+<meta name="description" content="台北上班族午休烏克麗麗小班。週二、四、五 12:15–13:15，每堂最多6人。初學班、K-pop彈唱、國語老歌、英語老歌、抖音彈唱，零基礎歡迎。">
+
+<style>
+:root {
+  --cream:  #FAF4E8;
+  --warm:   #FEFAF2;
+  --koa:    #C07840;
+  --ocean:  #3D7A73;
+  --deep:   #140C02;
+  --mid:    #4A300F;
+  --honey:  #D4A840;
+  --serif:  'Georgia', 'Times New Roman', serif;
+  --sans:   -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+}
+
+* { margin:0; padding:0; box-sizing:border-box; }
+html { scroll-behavior:smooth; }
+body { font-family:var(--sans); background:var(--warm); color:var(--deep); overflow-x:hidden; overflow-wrap:break-word; }
+
+/* ── TICKER ── */
+.ticker-bar {
+  background: linear-gradient(90deg, #140C02 0%, #2a1a06 50%, #140C02 100%);
+  border-bottom: 1px solid rgba(212,168,64,0.25);
+  overflow: hidden; white-space: nowrap;
+  position: relative; z-index: 200; padding: 0.55rem 0;
+}
+.ticker-bar a { text-decoration: none; display: block; }
+.ticker-track {
+  display: inline-flex; gap: 0;
+  animation: ticker-scroll 32s linear infinite;
+}
+.ticker-bar:hover .ticker-track { animation-play-state: paused; }
+.ticker-item {
+  display: inline-flex; align-items: center; gap: 0.8rem;
+  padding: 0 3rem;
+  font-size: 0.75rem; letter-spacing: 0.12em; color: rgba(212,168,64,0.9);
+  white-space: nowrap;
+}
+.ticker-item .ticker-dot { color: var(--koa); font-size: 1rem; }
+.ticker-item strong { color: var(--honey); }
+.ticker-item .ticker-cta {
+  background: var(--honey); color: var(--deep);
+  padding: 0.18rem 0.7rem; border-radius: 2px;
+  font-size: 0.68rem; font-weight: 700; letter-spacing: 0.08em; margin-left: 0.4rem;
+}
+@keyframes ticker-scroll {
+  0%   { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+/* ── NAV ── */
+nav {
+  position:fixed; top:0; left:0; right:0; z-index:300;
+  padding:1.2rem 3rem; display:flex; align-items:center; justify-content:space-between;
+  transition: background 0.4s, padding 0.4s;
+}
+nav.scrolled {
+  background:rgba(20,12,2,0.93); backdrop-filter:blur(12px);
+  padding:0.8rem 3rem; border-bottom:1px solid rgba(212,168,64,0.12);
+}
+.logo { font-family:var(--serif); font-size:1.3rem; color:white; text-decoration:none; letter-spacing:0.04em; }
+.logo span { color:var(--honey); font-style:normal; font-weight:bold; }
+.nav-links { display:flex; align-items:center; gap:2.5rem; }
+.nav-links a {
+  color:rgba(255,255,255,0.75); text-decoration:none; font-size:0.82rem;
+  letter-spacing:0.1em; text-transform:uppercase; transition:color 0.3s;
+}
+.nav-links a:hover { color:var(--honey); }
+.nav-cta {
+  background:transparent; color:white !important;
+  padding:0.6rem 1.6rem; border:1px solid rgba(212,168,64,0.6);
+  font-size:0.78rem !important; letter-spacing:0.12em !important;
+  border-radius:1px; transition:all 0.3s !important;
+}
+.nav-cta:hover { background:var(--honey) !important; border-color:var(--honey) !important; color:var(--deep) !important; }
+
+/* ── HERO ── */
+.hero {
+  position:relative; min-height:100vh;
+  display:flex; flex-direction:column; align-items:center; justify-content:center;
+  text-align:center; overflow:hidden;
+}
+.hero-bg {
+  position:absolute; inset:0; z-index:0;
+  background-image: url('https://images.unsplash.com/photo-1508461235343-942692734024?auto=format&fit=crop&w=1920&q=85');
+  background-size:cover; background-position:center 40%;
+  transform:scale(1.05);
+  animation: slowzoom 22s ease-in-out infinite alternate;
+}
+@keyframes slowzoom {
+  from { transform:scale(1.05) translateY(0); }
+  to   { transform:scale(1.12) translateY(-2%); }
+}
+.hero-overlay {
+  position:absolute; inset:0; z-index:1;
+  background: linear-gradient(
+    to bottom,
+    rgba(20,12,2,0.25) 0%,
+    rgba(20,12,2,0.52) 50%,
+    rgba(20,12,2,0.85) 100%
+  );
+}
+.hero-content { position:relative; z-index:2; padding:2rem; max-width:780px; }
+.hero-tag {
+  display:inline-block; font-size:0.7rem; letter-spacing:0.28em; text-transform:uppercase;
+  color:var(--honey); margin-bottom:2rem;
+  padding:0.35rem 1.2rem; border:1px solid rgba(212,168,64,0.4); border-radius:20px;
+}
+.hero h1 {
+  font-family:var(--serif); font-size:clamp(1.9rem,8vw,5rem);
+  font-weight:400; line-height:1.2; color:white; margin-bottom:1.2rem;
+  text-shadow: 0 2px 24px rgba(0,0,0,0.4);
+}
+.hero h1 em { color:var(--honey); font-style:normal; font-weight:bold; }
+.hero-sub { font-size:1rem; color:rgba(255,255,255,0.72); margin-bottom:1.2rem; letter-spacing:0.08em; }
+.hero-desc {
+  font-size:0.95rem; line-height:2; color:rgba(255,255,255,0.6);
+  max-width:500px; margin:0 auto 3rem;
+}
+.hero-btns { display:flex; gap:1.2rem; justify-content:center; flex-wrap:wrap; }
+.btn-fill {
+  background:var(--honey); color:var(--deep); padding:1rem 2.4rem;
+  text-decoration:none; font-size:0.82rem; letter-spacing:0.1em;
+  border-radius:1px; transition:all 0.3s; font-weight:600;
+}
+.btn-fill:hover { background:white; }
+.btn-ghost {
+  border:1px solid rgba(255,255,255,0.4); color:white; padding:1rem 2.2rem;
+  text-decoration:none; font-size:0.82rem; letter-spacing:0.1em;
+  border-radius:1px; transition:all 0.3s; background:transparent;
+}
+.btn-ghost:hover { border-color:var(--honey); color:var(--honey); }
+
+.scroll-hint {
+  position:absolute; bottom:2.5rem; left:50%; transform:translateX(-50%);
+  z-index:2; display:flex; flex-direction:column; align-items:center; gap:0.5rem;
+  color:rgba(255,255,255,0.4); font-size:0.62rem; letter-spacing:0.2em; text-transform:uppercase;
+  animation: bounce 2s ease-in-out infinite;
+}
+.scroll-hint::after {
+  content:''; display:block; width:1px; height:40px;
+  background:linear-gradient(to bottom, rgba(212,168,64,0.6), transparent);
+}
+@keyframes bounce {
+  0%,100% { transform:translateX(-50%) translateY(0); }
+  50%      { transform:translateX(-50%) translateY(6px); }
+}
+
+/* ── QUICK FACTS ── */
+.facts {
+  background:var(--deep); display:grid;
+  grid-template-columns:repeat(4,1fr); text-align:center;
+  padding:3rem 2rem; gap:0;
+}
+.fact-item { padding:1.5rem 1rem; border-right:1px solid rgba(255,255,255,0.06); }
+.fact-item:last-child { border-right:none; }
+.fact-n { font-family:var(--serif); font-size:2.6rem; color:var(--honey); line-height:1; }
+.fact-l { font-size:0.64rem; letter-spacing:0.16em; color:rgba(255,255,255,0.35); text-transform:uppercase; margin-top:0.5rem; }
+
+/* ── IMMERSIVE ── */
+.immersive {
+  position:relative; min-height:70vh;
+  display:flex; align-items:center; overflow:hidden;
+}
+.immersive-bg {
+  position:absolute; inset:0;
+  background-image: url('https://images.unsplash.com/photo-1501010624319-d28d01f59783?auto=format&fit=crop&w=1920&q=85');
+  background-size:cover; background-position:center;
+  background-attachment:fixed;
+}
+.immersive-overlay {
+  position:absolute; inset:0;
+  background:linear-gradient(to right, rgba(20,12,2,0.93) 45%, rgba(20,12,2,0.3) 100%);
+}
+.immersive-content {
+  position:relative; z-index:2;
+  padding:5rem 3rem 5rem 8%; max-width:600px;
+}
+.immersive-content .sec-tag { color:var(--honey); opacity:0.7; }
+.immersive-content h2 { color:white; margin-bottom:1.2rem; }
+.immersive-content p { color:rgba(255,255,255,0.65); font-size:0.95rem; line-height:2; margin-bottom:1rem; }
+
+/* ── SECTION BASE ── */
+section { padding:6rem 2rem; max-width:880px; margin:0 auto; }
+.sec-tag { font-size:0.65rem; letter-spacing:0.25em; text-transform:uppercase; color:var(--ocean); margin-bottom:1rem; display:block; }
+h2 { font-family:var(--serif); font-size:clamp(1.9rem,4vw,3rem); font-weight:400; line-height:1.2; margin-bottom:1.2rem; }
+h2 em { color:var(--koa); font-style:normal; font-weight:bold; }
+.lead { font-size:0.95rem; line-height:2; color:var(--mid); margin-bottom:3rem; }
+
+/* ── WHY CARDS ── */
+.reasons-wrap { background:var(--cream); padding:6rem 2rem; }
+.reasons { max-width:880px; margin:0 auto; }
+.cards { display:grid; grid-template-columns:repeat(3,1fr); gap:2rem; margin-top:2.5rem; }
+.card {
+  background:white; padding:2.5rem 2rem;
+  border-top:2px solid var(--honey); border-radius:2px;
+  box-shadow: 0 4px 30px rgba(0,0,0,0.06);
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+.card:hover { transform:translateY(-4px); box-shadow:0 8px 40px rgba(0,0,0,0.1); }
+.card-ico { font-size:2.2rem; margin-bottom:1.2rem; }
+.card h3 { font-family:var(--serif); font-size:1.2rem; color:var(--deep); margin-bottom:0.7rem; }
+.card p { font-size:0.87rem; line-height:1.9; color:var(--mid); }
+
+/* ── COURSES ── */
+.courses-wrap { position:relative; padding:6rem 2rem; overflow:hidden; }
+.courses-bg {
+  position:absolute; inset:0;
+  background-image: url('https://images.unsplash.com/photo-1578579653953-64e944c3741b?auto=format&fit=crop&w=1920&q=85');
+  background-size:cover; background-position:center;
+  background-attachment:fixed;
+  filter:brightness(0.18) saturate(0.5);
+}
+.courses-inner { position:relative; z-index:2; max-width:980px; margin:0 auto; }
+.courses-inner h2 { color:white; }
+.courses-inner .sec-tag { color:rgba(212,168,64,0.7); }
+.courses-inner .lead { color:rgba(255,255,255,0.45); }
+.course-grid {
+  display:grid; grid-template-columns:repeat(3,1fr); gap:1.5rem; margin-top:2.5rem;
+}
+.course-card {
+  background:rgba(255,255,255,0.05); border:1px solid rgba(212,168,64,0.18);
+  border-radius:3px; padding:2rem 1.8rem;
+  transition: background 0.3s, border-color 0.3s, transform 0.3s;
+}
+.course-card:hover { background:rgba(212,168,64,0.1); border-color:rgba(212,168,64,0.5); transform:translateY(-3px); }
+.course-tag {
+  font-size:0.58rem; letter-spacing:0.22em; text-transform:uppercase;
+  color:var(--honey); margin-bottom:0.8rem; display:block; opacity:0.7;
+}
+.course-card h3 { font-family:var(--serif); font-size:1.25rem; color:white; margin-bottom:0.8rem; }
+.course-card p { font-size:0.85rem; line-height:1.9; color:rgba(255,255,255,0.55); }
+.course-examples {
+  margin-top:1rem; padding-top:1rem; border-top:1px solid rgba(255,255,255,0.08);
+  font-size:0.77rem; color:rgba(212,168,64,0.6); line-height:1.7;
+}
+/* 5-card layout: 3 top + 2 centered bottom */
+.course-grid .course-card:nth-child(4) { grid-column:1 / 2; margin-left:calc(50% + 0.75rem); }
+.course-grid .course-card:nth-child(5) { grid-column:2 / 3; margin-left: 0; }
+
+/* ── SCHEDULE ── */
+.schedule-wrap { background:var(--cream); padding:6rem 2rem; }
+.schedule-inner { max-width:880px; margin:0 auto; }
+.schedule-grid {
+  display:grid; grid-template-columns:repeat(3,1fr); gap:1.5rem; margin-top:2.5rem;
+}
+.day-col {
+  background:white; border-radius:3px; overflow:hidden;
+  box-shadow:0 4px 30px rgba(0,0,0,0.06);
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+.day-col:hover { transform:translateY(-4px); box-shadow:0 8px 40px rgba(0,0,0,0.1); }
+.day-header {
+  background:var(--deep); padding:1.4rem; text-align:center;
+}
+.day-name { font-family:var(--serif); font-size:1.6rem; color:var(--honey); }
+.day-en { font-size:0.6rem; letter-spacing:0.22em; text-transform:uppercase; color:rgba(255,255,255,0.28); margin-top:0.3rem; }
+.time-slot {
+  padding:1.4rem 1.8rem; border-bottom:1px solid rgba(0,0,0,0.05);
+  display:flex; align-items:center; gap:1.2rem;
+}
+.time-slot:last-child { border-bottom:none; }
+.slot-num {
+  font-family:var(--serif); font-size:1.8rem; color:rgba(212,168,64,0.25);
+  line-height:1; flex-shrink:0;
+}
+.slot-info { flex:1; }
+.slot-time { font-size:1.05rem; font-weight:600; color:var(--koa); letter-spacing:0.02em; }
+.slot-label { font-size:0.78rem; color:var(--mid); margin-top:0.2rem; opacity:0.7; }
+
+/* ── TEACHER ── */
+.teacher-wrap { position:relative; padding:6rem 2rem; overflow:hidden; }
+.teacher-bg {
+  position:absolute; inset:0;
+  background-image: url('https://images.unsplash.com/photo-1577281747309-25bdad8b7cc0?auto=format&fit=crop&w=1920&q=85');
+  background-size:cover; background-position:center 30%;
+  filter:brightness(0.12) saturate(0.5);
+}
+.teacher-content { position:relative; z-index:2; max-width:720px; margin:0 auto; text-align:center; }
+.teacher-content .sec-tag { color:rgba(212,168,64,0.65); }
+.teacher-content h2 { color:white; margin-bottom:2.5rem; }
+.teacher-name { font-family:var(--serif); font-size:2.4rem; color:var(--honey); margin-bottom:0.4rem; }
+.teacher-title { font-size:0.75rem; letter-spacing:0.18em; color:rgba(255,255,255,0.35); margin-bottom:2.5rem; text-transform:uppercase; }
+.credentials { display:flex; flex-direction:column; gap:1rem; }
+.cred-item {
+  background:rgba(255,255,255,0.04); border:1px solid rgba(212,168,64,0.14);
+  border-left:3px solid var(--honey);
+  border-radius:2px; padding:1.2rem 2rem;
+  font-size:0.9rem; color:rgba(255,255,255,0.6); line-height:1.7;
+  text-align:left; display:flex; align-items:center; gap:1rem;
+}
+.cred-ico { font-size:1.3rem; flex-shrink:0; }
+
+/* ── CLASS INFO ── */
+.class-box {
+  background:var(--cream); border-radius:3px; padding:3rem;
+  display:grid; grid-template-columns:1fr 1fr; gap:2.5rem; margin-top:2.5rem;
+  box-shadow:0 4px 40px rgba(0,0,0,0.07);
+}
+.info-item { display:flex; gap:1.2rem; align-items:flex-start; margin-bottom:1.6rem; }
+.info-ico { font-size:1.4rem; flex-shrink:0; margin-top:0.1rem; }
+.info-label { font-size:0.62rem; letter-spacing:0.15em; text-transform:uppercase; color:var(--honey); }
+.info-val { font-size:0.93rem; color:var(--deep); margin-top:0.3rem; line-height:1.6; }
+.info-val strong { color:var(--koa); }
+.try-box {
+  background:linear-gradient(135deg, var(--koa) 0%, #8a4f20 100%);
+  color:white; padding:3rem 2.5rem;
+  border-radius:2px; text-align:center; margin-top:2rem;
+  box-shadow:0 8px 40px rgba(192,120,64,0.3);
+}
+.try-box h3 { font-family:var(--serif); font-size:2rem; margin-bottom:0.6rem; }
+.try-box p { font-size:0.9rem; opacity:0.88; margin-bottom:1.5rem; line-height:1.8; }
+.try-btn {
+  display:inline-block; background:white; color:var(--koa);
+  padding:0.9rem 2.4rem; text-decoration:none; font-size:0.82rem;
+  letter-spacing:0.1em; border-radius:1px; font-weight:600; transition:all 0.3s;
+}
+.try-btn:hover { background:var(--deep); color:white; }
+
+/* ── FAQ ── */
+.faq-wrap { padding:6rem 2rem; }
+.faq-inner { max-width:700px; margin:0 auto; }
+.faq-item { border-bottom:1px solid rgba(74,48,15,0.12); }
+.faq-q {
+  width:100%; background:none; border:none; text-align:left;
+  padding:1.4rem 0; font-family:var(--serif); font-size:1.05rem;
+  color:var(--deep); cursor:pointer; display:flex; justify-content:space-between; align-items:center; gap:1rem;
+}
+.faq-q::after { content:'+'; font-size:1.6rem; color:var(--honey); flex-shrink:0; transition:transform 0.3s; }
+.faq-item.open .faq-q::after { transform:rotate(45deg); }
+.faq-a { max-height:0; overflow:hidden; transition:max-height 0.4s ease; }
+.faq-a p { padding:0 0 1.4rem; font-size:0.9rem; line-height:2; color:var(--mid); }
+
+/* ── CONTACT ── */
+.contact-wrap { position:relative; padding:7rem 2rem; text-align:center; overflow:hidden; }
+.contact-bg {
+  position:absolute; inset:0;
+  background-image: url('https://images.unsplash.com/photo-1518190171695-bbbb69c4a901?auto=format&fit=crop&w=1920&q=85');
+  background-size:cover; background-position:center top;
+  filter:brightness(0.1) saturate(0.4);
+}
+.contact-content { position:relative; z-index:2; }
+.contact-wrap h2 { color:white; font-family:var(--serif); font-weight:400; margin-bottom:0.8rem; }
+.contact-wrap p { color:rgba(255,255,255,0.5); font-size:0.95rem; margin-bottom:2.5rem; line-height:1.8; }
+.contact-btns { display:flex; gap:1rem; justify-content:center; flex-wrap:wrap; }
+.contact-btn { padding:1rem 2.2rem; font-size:0.82rem; letter-spacing:0.08em; text-decoration:none; border-radius:2px; transition:all 0.3s; }
+.btn-line { background:#06C755; color:white; }
+.btn-line:hover { opacity:0.85; }
+.btn-email { border:1px solid rgba(255,255,255,0.2); color:rgba(255,255,255,0.6); background:transparent; }
+.btn-email:hover { border-color:var(--honey); color:var(--honey); }
+
+/* ── BOOKING ── */
+.booking-section { background:var(--deep); padding:6rem 2rem; }
+.booking-inner { max-width:640px; margin:0 auto; }
+.booking-inner h2 {
+  font-family:var(--serif); font-weight:400; color:var(--honey);
+  font-size:2rem; margin-bottom:0.5rem; text-align:center;
+}
+.booking-sub {
+  color:rgba(255,255,255,0.45); font-size:0.9rem; text-align:center;
+  margin-bottom:2.8rem; line-height:1.8;
+}
+.booking-form { display:flex; flex-direction:column; gap:1.2rem; }
+.form-row { display:grid; grid-template-columns:1fr 1fr; gap:1.2rem; }
+.form-group { display:flex; flex-direction:column; gap:0.4rem; }
+.form-group label { font-size:0.75rem; letter-spacing:0.1em; color:rgba(255,255,255,0.45); text-transform:uppercase; }
+.form-group input,
+.form-group select,
+.form-group textarea {
+  background:rgba(255,255,255,0.05); border:1px solid rgba(212,168,64,0.2);
+  border-radius:2px; padding:0.85rem 1rem;
+  color:white; font-size:0.9rem; font-family:var(--sans);
+  transition:border-color 0.3s; outline:none;
+}
+.form-group select { cursor:pointer; }
+.form-group select option { background:#2a1a06; color:white; }
+.form-group input::placeholder,
+.form-group textarea::placeholder { color:rgba(255,255,255,0.2); }
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus { border-color:var(--honey); }
+.form-group textarea { resize:vertical; min-height:90px; }
+.time-label { font-size:0.75rem; letter-spacing:0.1em; color:rgba(255,255,255,0.45); text-transform:uppercase; margin-bottom:0.4rem; }
+.time-options { display:flex; flex-direction:column; gap:0.6rem; }
+.time-option { display:flex; align-items:center; gap:0.75rem; cursor:pointer; }
+.time-option input[type="checkbox"] { width:16px; height:16px; cursor:pointer; accent-color:var(--honey); flex-shrink:0; }
+.time-option span { font-size:0.88rem; color:rgba(255,255,255,0.6); }
+.form-submit {
+  margin-top:0.6rem; background:transparent; border:1px solid var(--honey);
+  color:var(--honey); padding:1rem 2.5rem;
+  font-size:0.82rem; letter-spacing:0.12em; text-transform:uppercase;
+  cursor:pointer; border-radius:2px; transition:all 0.3s; font-family:var(--sans);
+}
+.form-submit:hover { background:var(--honey); color:var(--deep); }
+.form-success { display:none; text-align:center; padding:2rem; color:var(--honey); font-size:1.1rem; }
+
+/* ── FOOTER ── */
+footer {
+  background:var(--deep); border-top:1px solid rgba(255,255,255,0.05);
+  padding:2.5rem; text-align:center;
+  font-size:0.75rem; color:rgba(255,255,255,0.2);
+}
+footer a { color:rgba(255,255,255,0.35); text-decoration:none; transition:color 0.3s; }
+footer a:hover { color:var(--honey); }
+
+/* ── REVEAL ── */
+.reveal { opacity:0; transform:translateY(28px); transition:opacity 0.7s cubic-bezier(.22,1,.36,1), transform 0.7s cubic-bezier(.22,1,.36,1); }
+.reveal.on { opacity:1; transform:none; }
+
+/* ── RESPONSIVE ── */
+@media(max-width:900px) {
+  .course-grid .course-card:nth-child(4),
+  .course-grid .course-card:nth-child(5) { grid-column:auto; margin-left:0; }
+}
+@media(max-width:768px) {
+  .facts { grid-template-columns:repeat(2,1fr); }
+  .cards { grid-template-columns:1fr; }
+  .course-grid { grid-template-columns:1fr; }
+  .schedule-grid { grid-template-columns:1fr; }
+  .class-box { grid-template-columns:1fr; gap:0; }
+  .immersive-bg { background-attachment:scroll; }
+  .courses-bg { background-attachment:scroll; }
+  .teacher-bg { background-attachment:scroll; }
+  nav { padding:1rem 1.5rem; }
+  nav.scrolled { padding:0.7rem 1.5rem; }
+  .nav-links { display:none; }
+  .immersive-content { padding:5rem 1.5rem; max-width:100%; }
+  .form-row { grid-template-columns:1fr; }
+}
+@media(max-width:480px) {
+  .fact-n { font-size:2rem; }
+  .hero h1 { font-size:2rem; }
+}
+</style>
+</head>
+<body>
+
+<!-- TICKER -->
+<div class="ticker-bar">
+  <a href="#booking">
+    <div class="ticker-track">
+      <span class="ticker-item"><span class="ticker-dot">♪</span> <strong>初學班招生中</strong> &nbsp;·&nbsp; 上班族午休限定 &nbsp;·&nbsp; 週二 · 四 · 五 &nbsp;·&nbsp; 12:15 起 &nbsp;·&nbsp; 每堂最多6人 <span class="ticker-cta">立即報名 →</span></span>
+      <span class="ticker-item"><span class="ticker-dot">♪</span> K-pop 彈唱 &nbsp;·&nbsp; 國語老歌 &nbsp;·&nbsp; 英語老歌 &nbsp;·&nbsp; 抖音彈唱 &nbsp;·&nbsp; <strong>歡唱烏克麗麗</strong> &nbsp;·&nbsp; 零基礎歡迎 <span class="ticker-cta">看課程 →</span></span>
+      <span class="ticker-item"><span class="ticker-dot">♪</span> <strong>初學班招生中</strong> &nbsp;·&nbsp; 上班族午休限定 &nbsp;·&nbsp; 週二 · 四 · 五 &nbsp;·&nbsp; 12:15 起 &nbsp;·&nbsp; 每堂最多6人 <span class="ticker-cta">立即報名 →</span></span>
+      <span class="ticker-item"><span class="ticker-dot">♪</span> K-pop 彈唱 &nbsp;·&nbsp; 國語老歌 &nbsp;·&nbsp; 英語老歌 &nbsp;·&nbsp; 抖音彈唱 &nbsp;·&nbsp; <strong>歡唱烏克麗麗</strong> &nbsp;·&nbsp; 零基礎歡迎 <span class="ticker-cta">看課程 →</span></span>
+    </div>
+  </a>
+</div>
+
+<!-- NAV -->
+<nav id="nav">
+  <a href="#" class="logo">歡唱 <span>Ukulele</span></a>
+  <div class="nav-links">
+    <a href="#courses">課程</a>
+    <a href="#schedule">時間表</a>
+    <a href="#teacher">師資</a>
+    <a href="#faq">FAQ</a>
+    <a href="#booking" class="nav-cta">立即報名</a>
+  </div>
+</nav>
+
+<!-- HERO -->
+<div class="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-overlay"></div>
+  <div class="hero-content">
+    <div class="hero-tag">上班族午休烏克麗麗 · 台北小班制</div>
+    <h1>午休30分鐘，<em>彈出你的第一首歌</em></h1>
+    <p class="hero-sub">不需要音樂基礎，只需要一顆想唱的心</p>
+    <p class="hero-desc">
+      週二、四、五午休出發。12:15 開始，12:45 或 13:15 結束。<br>
+      每堂最多 6 人，老師一定看得到你。
+    </p>
+    <div class="hero-btns">
+      <a href="#booking" class="btn-fill">立即報名體驗課</a>
+      <a href="#courses" class="btn-ghost">先看看有哪些課</a>
+    </div>
+  </div>
+  <div class="scroll-hint">向下捲動</div>
+</div>
+
+<!-- QUICK FACTS -->
+<div class="facts">
+  <div class="fact-item reveal"><div class="fact-n">6</div><div class="fact-l">每堂最多人數</div></div>
+  <div class="fact-item reveal"><div class="fact-n">30</div><div class="fact-l">分鐘 · 一堂課</div></div>
+  <div class="fact-item reveal"><div class="fact-n">5</div><div class="fact-l">課程類型可選</div></div>
+  <div class="fact-item reveal"><div class="fact-n">20+</div><div class="fact-l">年教學資歷</div></div>
+</div>
+
+<!-- IMMERSIVE ABOUT -->
+<div class="immersive">
+  <div class="immersive-bg"></div>
+  <div class="immersive-overlay"></div>
+  <div class="immersive-content reveal">
+    <span class="sec-tag">為什麼是烏克麗麗</span>
+    <h2 style="color:white">午休音樂，<em style="color:var(--honey)">是最好的切換鍵</em></h2>
+    <p>螢幕、會議、待辦清單——你的腦子整個上午都在「輸出」。烏克麗麗不一樣，它讓你進入一種全身投入的當下，不需要想別的，只需要聽、彈、唱。</p>
+    <p>烏克麗麗是成人入門最友善的樂器。輕巧、音色溫暖，和弦只需要幾個手指，大多數人第一堂課就能彈完一首完整的歌，帶著成就感回去上班。</p>
+  </div>
+</div>
+
+<!-- WHY US -->
+<div class="reasons-wrap">
+  <div class="reasons">
+    <span class="sec-tag">為什麼在這裡學</span>
+    <h2>這堂課是<em>為你的午休</em>設計的</h2>
+    <p class="lead">不是「上班族也可以來」，而是「就是為上班族開的」。</p>
+    <div class="cards">
+      <div class="card reveal">
+        <div class="card-ico">👁️</div>
+        <h3>老師看得到你</h3>
+        <p>每堂最多 6 人。老師可以注意到每一個人的手型、節奏、唱腔，不讓你悶頭練錯，也不讓你一個人卡住。</p>
+      </div>
+      <div class="card reveal">
+        <div class="card-ico">⏰</div>
+        <h3>上班族設計</h3>
+        <p>12:15 開始，30 分鐘一堂。不需要請假，不佔晚上時間，不打亂你的生活節奏。午休出發，下午繼續工作，精神更好。</p>
+      </div>
+      <div class="card reveal">
+        <div class="card-ico">🎵</div>
+        <h3>第一堂就彈出歌</h3>
+        <p>不教空洞的樂理，從第一堂就學完整的歌。每堂都有東西帶走，成就感是繼續來的最好動力。</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- COURSES -->
+<div class="courses-wrap" id="courses">
+  <div class="courses-bg"></div>
+  <div class="courses-inner">
+    <span class="sec-tag">課程種類</span>
+    <h2>選你最想唱的<em>那種歌</em></h2>
+    <p class="lead">五種課型，每堂可以選。想彈什麼就來學什麼。</p>
+    <div class="course-grid">
+
+      <div class="course-card reveal">
+        <span class="course-tag">Beginner</span>
+        <h3>初學班</h3>
+        <p>完全沒碰過樂器？完美。從最基本的持琴姿勢開始，第一堂課就彈出你的第一首歌，不是只學音階。</p>
+        <div class="course-examples">
+          曲目例：《小幸運》《Hey Jude》《可惜不是你》
+        </div>
+      </div>
+
+      <div class="course-card reveal">
+        <span class="course-tag">K-pop</span>
+        <h3>K-pop 彈唱</h3>
+        <p>BTS、BLACKPINK、NewJeans、aespa... 用烏克麗麗彈出你最愛的 K-pop，節奏對了，你就會愛上這顆琴。</p>
+        <div class="course-examples">
+          曲目例：《Dynamite》《Pretty Savage》《Hype Boy》《Drama》
+        </div>
+      </div>
+
+      <div class="course-card reveal">
+        <span class="course-tag">Mandarin Classics</span>
+        <h3>國語老歌彈唱</h3>
+        <p>鄧麗君、周華健、張學友——那些陪伴我們成長的旋律，用烏克麗麗唱出來特別療癒，也特別下飯。</p>
+        <div class="course-examples">
+          曲目例：《甜蜜蜜》《朋友》《吻別》《月亮代表我的心》
+        </div>
+      </div>
+
+      <div class="course-card reveal">
+        <span class="course-tag">English Classics</span>
+        <h3>英語老歌彈唱</h3>
+        <p>Beatles、ABBA、Taylor Swift、Carpenters... 英文歌有它獨特的節奏感，烏克麗麗彈起來有股說不出的美好。</p>
+        <div class="course-examples">
+          曲目例：《Yesterday》《Top of the World》《Love Story》《Dancing Queen》
+        </div>
+      </div>
+
+      <div class="course-card reveal">
+        <span class="course-tag">TikTok Hits</span>
+        <h3>抖音彈唱</h3>
+        <p>最新最紅、人人耳熟的抖音神曲。彈完馬上可以錄一支，讓朋友嚇一跳。</p>
+        <div class="course-examples">
+          曲目例：《起風了》《可可托海的牧羊人》《星辰大海》《踏山河》
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<!-- SCHEDULE -->
+<div class="schedule-wrap" id="schedule">
+  <div class="schedule-inner">
+    <span class="sec-tag">上課時間</span>
+    <h2>週二、四、五，<em>午休出發</em></h2>
+    <p class="lead">每節 30 分鐘，兩個時段任選。不用請假，不佔你的晚上。</p>
+    <div class="schedule-grid">
+      <div class="day-col reveal">
+        <div class="day-header">
+          <div class="day-name">週二</div>
+          <div class="day-en">Tuesday</div>
+        </div>
+        <div class="time-slot">
+          <div class="slot-num">1</div>
+          <div class="slot-info">
+            <div class="slot-time">12:15 – 12:45</div>
+            <div class="slot-label">早場午休</div>
+          </div>
+        </div>
+        <div class="time-slot">
+          <div class="slot-num">2</div>
+          <div class="slot-info">
+            <div class="slot-time">12:45 – 13:15</div>
+            <div class="slot-label">晚場午休</div>
+          </div>
+        </div>
+      </div>
+      <div class="day-col reveal">
+        <div class="day-header">
+          <div class="day-name">週四</div>
+          <div class="day-en">Thursday</div>
+        </div>
+        <div class="time-slot">
+          <div class="slot-num">1</div>
+          <div class="slot-info">
+            <div class="slot-time">12:15 – 12:45</div>
+            <div class="slot-label">早場午休</div>
+          </div>
+        </div>
+        <div class="time-slot">
+          <div class="slot-num">2</div>
+          <div class="slot-info">
+            <div class="slot-time">12:45 – 13:15</div>
+            <div class="slot-label">晚場午休</div>
+          </div>
+        </div>
+      </div>
+      <div class="day-col reveal">
+        <div class="day-header">
+          <div class="day-name">週五</div>
+          <div class="day-en">Friday</div>
+        </div>
+        <div class="time-slot">
+          <div class="slot-num">1</div>
+          <div class="slot-info">
+            <div class="slot-time">12:15 – 12:45</div>
+            <div class="slot-label">早場午休</div>
+          </div>
+        </div>
+        <div class="time-slot">
+          <div class="slot-num">2</div>
+          <div class="slot-info">
+            <div class="slot-time">12:45 – 13:15</div>
+            <div class="slot-label">晚場午休</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- TEACHER -->
+<div class="teacher-wrap" id="teacher">
+  <div class="teacher-bg"></div>
+  <div class="teacher-content reveal">
+    <span class="sec-tag">師資介紹</span>
+    <h2 style="color:white">你的<em style="color:var(--honey)">烏克麗麗老師</em></h2>
+    <div class="teacher-name">Vivian 老師</div>
+    <div class="teacher-title">Ukulele Instructor · 烏克麗麗専任老師</div>
+    <div class="credentials">
+      <div class="cred-item">
+        <span class="cred-ico">🎓</span>
+        功學社復興種子烏克麗麗認證老師——全台最具公信力的烏克麗麗師資認證
+      </div>
+      <div class="cred-item">
+        <span class="cred-ico">🏫</span>
+        文山社區大學烏克麗麗専任老師——長期開設成人學員課程
+      </div>
+      <div class="cred-item">
+        <span class="cred-ico">✨</span>
+        烏克麗麗教學資歷逾20年，帶過從6歲到70歲的學員
+      </div>
+      <div class="cred-item">
+        <span class="cred-ico">🎵</span>
+        擅長讓初學者在第一堂課就彈出完整的歌，建立持續學習的成就感
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- CLASS INFO -->
+<section id="class">
+  <span class="sec-tag">課程資訊</span>
+  <h2>簡單清楚，<em>沒有複雜選項</em></h2>
+  <p class="lead">一位老師、五種課型、一個簡單的時間。</p>
+  <div class="class-box">
+    <div>
+      <div class="info-item">
+        <div class="info-ico">📍</div>
+        <div>
+          <div class="info-label">地點</div>
+          <div class="info-val">台北市<br><strong>報名後提供詳細地址</strong></div>
+        </div>
+      </div>
+      <div class="info-item">
+        <div class="info-ico">🕐</div>
+        <div>
+          <div class="info-label">上課時間</div>
+          <div class="info-val">週二、四、五<br>12:15–12:45 ／ 12:45–13:15<br><strong>任選時段</strong></div>
+        </div>
+      </div>
+      <div class="info-item">
+        <div class="info-ico">👥</div>
+        <div>
+          <div class="info-label">班級人數</div>
+          <div class="info-val"><strong>每堂最多 6 人</strong><br>老師一定看得到你</div>
+        </div>
+      </div>
+    </div>
+    <div>
+      <div class="info-item">
+        <div class="info-ico">💰</div>
+        <div>
+          <div class="info-label">費用</div>
+          <div class="info-val">
+            <strong>首堂體驗 NT$499</strong><br>
+            單堂 NT$600<br>
+            10堂券 NT$5,500（送1堂）
+          </div>
+        </div>
+      </div>
+      <div class="info-item">
+        <div class="info-ico">🎸</div>
+        <div>
+          <div class="info-label">需要帶什麼</div>
+          <div class="info-val">只需要穿舒適的衣服來<br><strong>烏克麗麗可借用</strong>，無需自備</div>
+        </div>
+      </div>
+      <div class="info-item">
+        <div class="info-ico">✅</div>
+        <div>
+          <div class="info-label">基礎要求</div>
+          <div class="info-val"><strong>完全沒有</strong><br>第一次接觸樂器的人最歡迎</div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="try-box reveal">
+    <h3>第一堂只要 NT$499</h3>
+    <p>來試一次，感受看看烏克麗麗適不適合你。不喜歡完全沒關係，沒有任何壓力。</p>
+    <a href="#booking" class="try-btn">預約體驗課</a>
+  </div>
+</section>
+
+<!-- FAQ -->
+<div class="faq-wrap" id="faq">
+  <div class="faq-inner">
+    <span class="sec-tag">常見問題</span>
+    <h2>你可能想問的<em>問題</em></h2>
+
+    <div class="faq-item">
+      <button class="faq-q" onclick="toggleFaq(this)">完全沒學過樂器，真的可以嗎？</button>
+      <div class="faq-a"><p>完全可以。烏克麗麗是所有樂器裡對初學者最友善的之一——只有四條弦、和弦不複雜、琴頸短、手指不容易痠。不需要任何音樂基礎，老師從最基本的地方帶你開始，第一堂就彈出一首完整的歌。</p></div>
+    </div>
+    <div class="faq-item">
+      <button class="faq-q" onclick="toggleFaq(this)">30分鐘真的夠嗎？感覺很短。</button>
+      <div class="faq-a"><p>30分鐘其實非常夠——因為目標很清楚，每堂只學一首歌，不分散注意力。成人學習者專注力最好的時段通常在前30分鐘，這樣的節奏反而讓你學得更紮實，不會因為太長而感到疲倦或壓力。</p></div>
+    </div>
+    <div class="faq-item">
+      <button class="faq-q" onclick="toggleFaq(this)">我需要先買烏克麗麗嗎？</button>
+      <div class="faq-a"><p>不需要。上課的烏克麗麗可以借用，體驗過後再決定要不要買。老師也可以幫你推薦適合初學者、不亂花錢的款式。不建議在還沒試過之前就先買琴。</p></div>
+    </div>
+    <div class="faq-item">
+      <button class="faq-q" onclick="toggleFaq(this)">五種課可以跨班上嗎？</button>
+      <div class="faq-a"><p>可以。五種課型不是嚴格分班，你可以根據當週心情和時段選擇。剛開始建議先上幾堂初學班打好基礎，之後就可以自由選課種了。</p></div>
+    </div>
+    <div class="faq-item">
+      <button class="faq-q" onclick="toggleFaq(this)">每堂都可能有不同的學員，這樣跟得上嗎？</button>
+      <div class="faq-a"><p>可以。每堂課都是獨立設計的，不需要前一堂為基礎，任何時候加入都能跟上。同學的程度可能不同，但老師會根據每個人的狀況給予個別的提醒和調整，小班制的好處就在這裡。</p></div>
+    </div>
+    <div class="faq-item">
+      <button class="faq-q" onclick="toggleFaq(this)">怎麼預約？要先付費嗎？</button>
+      <div class="faq-a"><p>直接填下面的表單，或傳訊息給我就好。不需要先付費，確認時間後再說。第一堂體驗課 NT$499，可現場付款、LINE Pay 或轉帳都可以。</p></div>
+    </div>
+  </div>
+</div>
+
+<!-- CONTACT -->
+<div class="contact-wrap" id="contact">
+  <div class="contact-bg"></div>
+  <div class="contact-content">
+    <h2>直接傳訊息給我</h2>
+    <p>說「我想預約體驗課」就好。我通常在當天或隔天回覆。</p>
+    <div class="contact-btns">
+      <a href="https://line.me/ti/p/" target="_blank" class="contact-btn btn-line">LINE 傳訊息</a>
+      <a href="mailto:" class="contact-btn btn-email">寄電子郵件</a>
+    </div>
+  </div>
+</div>
+
+<!-- BOOKING FORM -->
+<div class="booking-section" id="booking">
+  <div class="booking-inner">
+    <h2>預約體驗課</h2>
+    <p class="booking-sub">填寫以下表單，告訴我你方便的時間。我會盡快回覆確認。</p>
+
+    <form class="booking-form" action="https://api.web3forms.com/submit" method="POST" onsubmit="handleSubmit(event)">
+      <input type="hidden" name="access_key" value="YOUR_WEB3FORMS_KEY_HERE">
+      <input type="hidden" name="subject" value="歡唱烏克麗麗 · 預約體驗課">
+
+      <div class="form-row">
+        <div class="form-group">
+          <label for="name">姓名</label>
+          <input type="text" id="name" name="name" placeholder="你的名字" required>
+        </div>
+        <div class="form-group">
+          <label for="phone">電話 / LINE ID</label>
+          <input type="text" id="phone" name="phone" placeholder="方便聯繫的方式" required>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="email">Email</label>
+        <input type="email" id="email" name="email" placeholder="確認信會寄到這裡" required>
+      </div>
+
+      <div class="form-group">
+        <label for="course">想上哪種課</label>
+        <select id="course" name="course" required>
+          <option value="" disabled selected>請選擇課程種類</option>
+          <option value="初學班">初學班（完全零基礎）</option>
+          <option value="K-pop彈唱">K-pop 彈唱</option>
+          <option value="國語老歌彈唱">國語老歌彈唱</option>
+          <option value="英語老歌彈唱">英語老歌彈唱</option>
+          <option value="抖音彈唱">抖音彈唱</option>
+          <option value="不確定，老師建議">不確定，讓老師建議</option>
+        </select>
+      </div>
+
+      <div>
+        <p class="time-label">偏好上課時段（可複選）</p>
+        <div class="time-options">
+          <label class="time-option">
+            <input type="checkbox" name="time[]" value="週二 12:15-12:45">
+            <span>週二 · 12:15 – 12:45</span>
+          </label>
+          <label class="time-option">
+            <input type="checkbox" name="time[]" value="週二 12:45-13:15">
+            <span>週二 · 12:45 – 13:15</span>
+          </label>
+          <label class="time-option">
+            <input type="checkbox" name="time[]" value="週四 12:15-12:45">
+            <span>週四 · 12:15 – 12:45</span>
+          </label>
+          <label class="time-option">
+            <input type="checkbox" name="time[]" value="週四 12:45-13:15">
+            <span>週四 · 12:45 – 13:15</span>
+          </label>
+          <label class="time-option">
+            <input type="checkbox" name="time[]" value="週五 12:15-12:45">
+            <span>週五 · 12:15 – 12:45</span>
+          </label>
+          <label class="time-option">
+            <input type="checkbox" name="time[]" value="週五 12:45-13:15">
+            <span>週五 · 12:45 – 13:15</span>
+          </label>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="note">備註</label>
+        <textarea id="note" name="note" placeholder="有什麼想先說的，或想問的問題⋯"></textarea>
+      </div>
+
+      <button type="submit" class="form-submit">送出預約申請</button>
+    </form>
+
+    <div class="form-success" id="formSuccess">
+      <p>♪ 已收到你的預約申請！</p>
+      <p style="font-size:0.88rem; margin-top:1rem; line-height:2; color:rgba(212,168,64,0.75);">
+        我會盡快與你確認時間，請保持 LINE 或 e-mail 暢通。<br>
+        期待在課堂上見到你！
+      </p>
+    </div>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <p>© 2026 歡唱烏克麗麗 &nbsp;·&nbsp; Huanchang Ukulele Studio &nbsp;·&nbsp; 台北小班制</p>
+</footer>
+
+<script>
+// Sticky nav
+const nav = document.getElementById('nav');
+const ticker = document.querySelector('.ticker-bar');
+
+function updateNav() {
+  const tickerBottom = Math.max(0, ticker.getBoundingClientRect().bottom);
+  nav.style.top = tickerBottom + 'px';
+  nav.classList.toggle('scrolled', window.scrollY > 60);
+}
+window.addEventListener('scroll', updateNav);
+updateNav();
+
+// FAQ toggle
+function toggleFaq(btn) {
+  const item = btn.closest('.faq-item');
+  const isOpen = item.classList.contains('open');
+  document.querySelectorAll('.faq-item.open').forEach(el => {
+    el.classList.remove('open');
+    el.querySelector('.faq-a').style.maxHeight = null;
+  });
+  if (!isOpen) {
+    item.classList.add('open');
+    item.querySelector('.faq-a').style.maxHeight = item.querySelector('.faq-a').scrollHeight + 'px';
+  }
+}
+
+// Scroll reveal
+const observer = new IntersectionObserver(entries => {
+  entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('on'); });
+}, { threshold: 0.1 });
+document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+// Form submission
+async function handleSubmit(e) {
+  e.preventDefault();
+  const form = e.target;
+  const data = new FormData(form);
+  try {
+    const res = await fetch('https://api.web3forms.com/submit', { method: 'POST', body: data });
+    const json = await res.json();
+    if (json.success) {
+      form.style.display = 'none';
+      document.getElementById('formSuccess').style.display = 'block';
+    } else {
+      alert('送出失敗，請稍後再試或直接傳 LINE 給我。');
+    }
+  } catch {
+    alert('送出失敗，請稍後再試或直接傳 LINE 給我。');
+  }
+}
+</script>
+
+</body>
+</html>
