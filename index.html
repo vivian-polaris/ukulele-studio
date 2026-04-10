@@ -101,9 +101,9 @@ nav.scrolled {
   position:absolute; inset:0; z-index:1;
   background: linear-gradient(
     to bottom,
-    rgba(20,12,2,0.55) 0%,
-    rgba(20,12,2,0.72) 50%,
-    rgba(20,12,2,0.92) 100%
+    rgba(20,12,2,0.30) 0%,
+    rgba(20,12,2,0.50) 50%,
+    rgba(20,12,2,0.72) 100%
   );
 }
 .hero-content { position:relative; z-index:2; padding:2rem; max-width:800px; }
@@ -115,13 +115,15 @@ nav.scrolled {
 .hero h1 {
   font-family:var(--serif); font-size:clamp(2rem,4.5vw,3.4rem);
   font-weight:400; line-height:1.25; color:white; margin-bottom:1.2rem;
-  text-shadow: 0 2px 24px rgba(0,0,0,0.4);
+  text-shadow: 0 2px 12px rgba(0,0,0,0.7), 0 4px 32px rgba(0,0,0,0.5);
 }
 .hero h1 em { color:var(--honey); font-style:normal; font-weight:bold; }
 .hero-quote {
   font-family:var(--serif); font-size:0.98rem; font-style:italic;
-  color:rgba(255,255,255,0.62); letter-spacing:0.06em; line-height:1.9;
+  color:rgba(255,255,255,0.85); letter-spacing:0.06em; line-height:1.9;
   margin:0 auto 2rem; max-width:460px;
+  text-wrap:balance;
+  text-shadow: 0 1px 8px rgba(0,0,0,0.6);
 }
 .hero-quote cite {
   display:block; font-style:normal; font-size:0.78rem;
@@ -485,6 +487,7 @@ footer a:hover { color:var(--honey); }
   .hero-content { padding:1.6rem 1.3rem; }
   .hero h1 { font-size:2.1rem; line-height:1.35; }
   .hero h1 em { display:block; font-size:0.68em; margin-top:0.25em; letter-spacing:0.06em; font-weight:400; }
+  .hero-quote { font-size:0.88rem; letter-spacing:0.03em; }
   .hero-sub  { font-size:0.85rem; line-height:1.75; margin-bottom:0.8rem; }
   .hero-desc { font-size:0.8rem;  line-height:1.8;  margin-bottom:1.8rem; }
   .hero-btns { flex-direction:column; align-items:center; gap:0.8rem; }
@@ -631,31 +634,6 @@ footer a:hover { color:var(--honey); }
 </div>
 
 <!-- WHY -->
-<div class="reasons-wrap">
-  <div class="reasons">
-    <span class="sec-tag">為什麼選烏克麗麗</span>
-    <h2>退休生活最棒的<em>音樂選擇</em></h2>
-    <p class="lead">輕巧好上手，聲音溫暖，任何年齡都能學。</p>
-    <div class="cards">
-      <div class="card reveal">
-        <div class="card-ico">🧠</div>
-        <h3>活化大腦</h3>
-        <p>記歌詞、學和弦、跟著節奏彈，大腦自然就動起來了。最有趣的方式，讓腦筋保持靈活。</p>
-      </div>
-      <div class="card reveal">
-        <div class="card-ico">🖐️</div>
-        <h3>手指更靈活</h3>
-        <p>撥弦、換和弦，每次練習都輕輕活動手指。擔心手部退化的朋友，這是最溫和的方式。</p>
-      </div>
-      <div class="card reveal">
-        <div class="card-ico">😊</div>
-        <h3>心情更開朗</h3>
-        <p>一起唱熟悉的老歌，笑聲最多。沒有壓力，沒有比較，只有快樂——這就是每堂課的樣子。</p>
-      </div>
-    </div>
-  </div>
-</div>
-
 <!-- COURSES -->
 <div class="courses-wrap" id="courses">
   <div class="courses-bg"></div>
@@ -666,27 +644,21 @@ footer a:hover { color:var(--honey); }
     <div class="course-grid">
 
       <div class="course-card reveal">
-        <span class="course-tag">最推薦</span>
-        <h3>🌙 國語老歌</h3>
-        <p>鄧麗君、鳳飛飛、劉文正——熟悉的旋律，用烏克麗麗唱出來，特別溫暖。</p>
+        <span class="course-tag">初學</span>
+        <h3>🎸 零基礎班</h3>
+        <p>從來沒碰過樂器也沒關係。文文老師從頭帶你，第一堂就彈出一首完整的歌。</p>
       </div>
 
       <div class="course-card reveal">
         <span class="course-tag">最推薦</span>
-        <h3>🎶 台語老歌</h3>
-        <p>江蕙、葉啟田——每一首都是故事，每一句都覺得親切，唱起來特別有感覺。</p>
+        <h3>🌙 國臺語老歌</h3>
+        <p>鄧麗君、鳳飛飛、江蕙、葉啟田——每一首都是故事，用烏克麗麗唱出來特別有感覺。</p>
       </div>
 
       <div class="course-card reveal">
         <span class="course-tag">最推薦</span>
         <h3>🎵 英語老歌</h3>
         <p>Beatles、Carpenters——那些陪過我們的歌，現在自己拿起烏克麗麗彈出來。</p>
-      </div>
-
-      <div class="course-card reveal">
-        <span class="course-tag">初學</span>
-        <h3>🎸 零基礎班</h3>
-        <p>從來沒碰過樂器也沒關係。文文老師從頭帶你，第一堂就彈出一首完整的歌。</p>
       </div>
 
     </div>
@@ -757,9 +729,8 @@ footer a:hover { color:var(--honey); }
   <div class="teacher-bg"></div>
   <div class="teacher-content reveal">
     <span class="sec-tag">師資介紹</span>
-    <h2 style="color:white">你的<em style="color:var(--honey)">烏克麗麗老師</em></h2>
-    <div class="teacher-name">我是文文，你的烏克麗麗老師</div>
-    <div class="teacher-title">Ukulele Instructor · 烏克麗麗専任老師</div>
+    <div class="teacher-name">文文老師</div>
+    <div class="teacher-title">爵士底愛唱歌的烏克麗麗老師，陪你探索音樂</div>
     <div class="credentials">
       <div class="cred-item">
         <span class="cred-ico">🎓</span>
