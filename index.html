@@ -23,6 +23,18 @@
 html { scroll-behavior:smooth; }
 body { font-family:var(--sans); font-size:18px; background:var(--warm); color:var(--deep); overflow-x:hidden; overflow-wrap:break-word; }
 
+/* ── LANG TOGGLE ── */
+body.lang-en .zh { display:none !important; }
+body.lang-zh .en { display:none !important; }
+.lang-btn {
+  background:transparent; border:1px solid rgba(212,168,64,0.4);
+  color:rgba(255,255,255,0.75); padding:0.28rem 0.75rem;
+  font-size:0.72rem; letter-spacing:0.1em; cursor:pointer;
+  border-radius:2px; transition:all 0.3s; font-family:var(--sans);
+  margin-left:0.5rem; text-transform:uppercase;
+}
+.lang-btn:hover { border-color:var(--honey); color:var(--honey); }
+
 /* ── TICKER ── */
 .ticker-bar {
   background: linear-gradient(90deg, #140C02 0%, #2a1a06 50%, #140C02 100%);
@@ -111,6 +123,10 @@ nav.scrolled {
   display:inline-block; font-size:0.82rem; letter-spacing:0.2em; text-transform:uppercase;
   color:var(--honey); margin-bottom:2rem;
   padding:0.4rem 1.4rem; border:1px solid rgba(212,168,64,0.4); border-radius:20px;
+}
+.hero-note {
+  display:block; font-size:0.75rem; letter-spacing:0.15em; color:rgba(212,168,64,0.7);
+  margin-top:0.6rem; margin-bottom:1.4rem;
 }
 .hero h1 {
   font-family:var(--serif); font-size:clamp(2rem,4.5vw,3.4rem);
@@ -246,59 +262,7 @@ h2 em { color:var(--koa); font-style:normal; font-weight:bold; }
 .course-tag { font-size:0.65rem; letter-spacing:0.2em; text-transform:uppercase; color:var(--honey); margin-bottom:0.8rem; display:block; opacity:0.7; }
 .course-card h3 { font-family:var(--serif); font-size:1.35rem; color:white; margin-bottom:0.9rem; }
 .course-card p { font-size:0.95rem; line-height:1.9; color:rgba(255,255,255,0.6); }
-.course-examples {
-  margin-top:1.1rem; padding-top:1.1rem; border-top:1px solid rgba(255,255,255,0.1);
-  font-size:0.85rem; color:rgba(212,168,64,0.65); line-height:1.8;
-}
-
-/* ── SPECIAL COURSE TICKER ── */
-.special-ticker-wrap {
-  background:var(--koa); display:flex; align-items:stretch;
-  overflow:hidden; border-top:1px solid rgba(255,255,255,0.08);
-  border-bottom:1px solid rgba(255,255,255,0.08);
-}
-.special-ticker-label {
-  flex-shrink:0; padding:1.1rem 1.6rem; background:var(--honey);
-  color:var(--deep); font-size:0.78rem; font-weight:800;
-  letter-spacing:0.15em; text-transform:uppercase;
-  display:flex; align-items:center; white-space:nowrap;
-}
-.special-ticker-scroll { flex:1; overflow:hidden; }
-.special-ticker-track {
-  display:flex; gap:0; white-space:nowrap;
-  animation:special-scroll 22s linear infinite;
-}
-@keyframes special-scroll {
-  0%   { transform:translateX(0); }
-  100% { transform:translateX(-50%); }
-}
-.special-ticker-track span,
-.special-ticker-track a {
-  display:inline-flex; align-items:center;
-  padding:1.1rem 1.4rem; color:rgba(255,255,255,0.85);
-  font-size:1rem; text-decoration:none; white-space:nowrap;
-}
-.special-ticker-track a { color:var(--honey); font-weight:700; }
-.special-ticker-track a:hover { color:white; }
-.stk-dot { color:rgba(255,255,255,0.25) !important; padding:0 0.2rem !important; }
-
-/* ── OLD SPECIAL (kept for reference) ── */
-.special-wrap { background:var(--deep); padding:4rem 2rem; display:none; }
-.special-inner { max-width:900px; margin:0 auto; }
-.special-box {
-  border:1px solid rgba(212,168,64,0.4); border-radius:3px; padding:2.8rem 3rem;
-  display:grid; grid-template-columns:1fr auto; gap:2.5rem; align-items:center;
-  background:rgba(212,168,64,0.06);
-}
-.special-tag { font-size:0.7rem; letter-spacing:0.22em; text-transform:uppercase; color:var(--honey); margin-bottom:0.8rem; display:block; }
-.special-box h3 { font-family:var(--serif); font-size:1.9rem; color:white; margin-bottom:0.6rem; }
-.special-box p { font-size:1rem; color:rgba(255,255,255,0.6); line-height:1.9; }
-.special-cta {
-  background:var(--honey); color:var(--deep); padding:1rem 2.2rem;
-  text-decoration:none; font-size:1rem; font-weight:700; letter-spacing:0.06em;
-  border-radius:2px; white-space:nowrap; transition:all 0.3s; display:inline-block;
-}
-.special-cta:hover { background:white; }
+.course-bilingual { font-size:0.8rem; color:rgba(212,168,64,0.55); display:block; margin-top:0.3rem; letter-spacing:0.05em; font-style:normal; }
 
 /* ── VIDEOS ── */
 .videos-wrap { position:relative; padding:6rem 2rem; overflow:hidden; }
@@ -392,24 +356,6 @@ h2 em { color:var(--koa); font-style:normal; font-weight:bold; }
 .faq-a { max-height:0; overflow:hidden; transition:max-height 0.4s ease; }
 .faq-a p { padding:0 0 1.5rem; font-size:1rem; line-height:2.1; color:var(--mid); }
 
-/* ── CONTACT ── */
-.contact-wrap { position:relative; padding:7rem 2rem; text-align:center; overflow:hidden; }
-.contact-bg {
-  position:absolute; inset:0;
-  background-image: url('https://images.unsplash.com/photo-1518190171695-bbbb69c4a901?auto=format&fit=crop&w=1920&q=85');
-  background-size:cover; background-position:center top;
-  filter:brightness(0.1) saturate(0.4);
-}
-.contact-content { position:relative; z-index:2; }
-.contact-wrap h2 { color:white; font-family:var(--serif); font-weight:400; margin-bottom:0.8rem; }
-.contact-wrap p { color:rgba(255,255,255,0.55); font-size:1.05rem; margin-bottom:2.5rem; line-height:1.9; }
-.contact-btns { display:flex; gap:1.2rem; justify-content:center; flex-wrap:wrap; }
-.contact-btn { padding:1.1rem 2.4rem; font-size:1rem; letter-spacing:0.06em; text-decoration:none; border-radius:2px; transition:all 0.3s; }
-.btn-line { background:#06C755; color:white; }
-.btn-line:hover { opacity:0.85; }
-.btn-email { border:1px solid rgba(255,255,255,0.25); color:rgba(255,255,255,0.65); background:transparent; }
-.btn-email:hover { border-color:var(--honey); color:var(--honey); }
-
 /* ── BOOKING ── */
 .booking-section { background:var(--deep); padding:6rem 2rem; }
 .booking-inner { max-width:660px; margin:0 auto; }
@@ -480,10 +426,8 @@ footer a:hover { color:var(--honey); }
     white-space:nowrap;
   }
 
-  /* ── 防止溢出 ── */
   h1, h2, h3, .teacher-name { overflow-wrap:break-word; }
 
-  /* ── HERO 層次 ── */
   .hero-content { padding:1.6rem 1.3rem; }
   .hero h1 { font-size:2.1rem; line-height:1.35; }
   .hero h1 em { display:block; font-size:0.68em; margin-top:0.25em; letter-spacing:0.06em; font-weight:400; }
@@ -494,44 +438,36 @@ footer a:hover { color:var(--honey); }
   .hero-btns { flex-direction:column; align-items:center; gap:0.8rem; }
   .btn-fill, .btn-ghost { width:100%; max-width:300px; text-align:center; }
 
-  /* ── SECTION 層次 ── */
   .sec-tag { font-size:0.65rem; }
   h2 { font-size:1.65rem; line-height:1.3; }
   h3 { font-size:1.1rem; }
   .lead { font-size:0.88rem; line-height:1.8; margin-bottom:2rem; }
 
-  /* ── FACTS ── */
   .facts { grid-template-columns:repeat(2,1fr); padding:2rem 1rem; }
   .fact-n { font-size:0.95rem; }
 
-  /* ── SECTIONS PADDING ── */
   section { padding:3.2rem 1.2rem; }
   .reasons-wrap, .courses-wrap, .schedule-wrap,
   .teacher-wrap, .faq-wrap, .contact-wrap,
   .booking-section, .videos-wrap { padding:3.2rem 1.2rem; }
 
-  /* ── IMMERSIVE ── */
   .immersive-bg, .courses-bg, .videos-bg, .teacher-bg { background-attachment:scroll; }
   .immersive-content { padding:3rem 1.4rem; max-width:100%; }
   .immersive-content h2 { font-size:1.55rem; }
   .immersive-content p  { font-size:0.9rem; line-height:1.9; }
 
-  /* ── CARDS / COURSES ── */
   .cards { grid-template-columns:1fr; gap:1rem; }
   .card { padding:1.8rem 1.3rem; }
   .course-grid { grid-template-columns:1fr; }
   .course-card { padding:1.6rem 1.3rem; }
   .vid-grid { grid-template-columns:1fr; gap:1.2rem; }
 
-  /* ── SCHEDULE ── */
   .schedule-grid { grid-template-columns:1fr !important; max-width:100% !important; }
   .class-box { grid-template-columns:1fr; gap:0; padding:1.6rem 1.2rem; }
 
-  /* ── TEACHER ── */
   .teacher-name { font-size:1.4rem; line-height:1.4; }
   .cred-item { padding:0.9rem 1.1rem; font-size:0.88rem; }
 
-  /* ── FAQ / FORM ── */
   .faq-q { font-size:1rem; padding:1.1rem 0; }
   .form-row { grid-template-columns:1fr; }
   .booking-inner h2 { font-size:1.45rem; }
@@ -545,10 +481,13 @@ footer a:hover { color:var(--honey); }
 }
 </style>
 </head>
-<body>
+<body class="lang-zh">
 
 <!-- MOBILE FLOATING CTA -->
-<a href="#booking" class="mobile-cta" style="display:none;" id="mobileCta">♪ 預約體驗課</a>
+<a href="#booking" class="mobile-cta" style="display:none;" id="mobileCta">
+  <span class="zh">♪ 預約體驗課</span>
+  <span class="en">♪ Book a Trial</span>
+</a>
 
 <!-- TICKER -->
 <div class="ticker-bar">
@@ -566,11 +505,11 @@ footer a:hover { color:var(--honey); }
 <nav id="nav">
   <a href="#" class="logo">歡唱 <span>Ukulele</span></a>
   <div class="nav-links">
-    <a href="#courses">課程</a>
-    <a href="#schedule">時間</a>
-    <a href="#teacher">師資</a>
+    <a href="#courses"><span class="zh">課程</span><span class="en">Courses</span></a>
+    <a href="#teacher"><span class="zh">師資</span><span class="en">Teacher</span></a>
     <a href="#faq">FAQ</a>
-    <a href="#booking" class="nav-cta">預約體驗課</a>
+    <a href="#booking" class="nav-cta"><span class="zh">預約體驗課</span><span class="en">Book Trial</span></a>
+    <button class="lang-btn" id="langBtn" onclick="toggleLang()">EN</button>
   </div>
 </nav>
 
@@ -579,47 +518,64 @@ footer a:hover { color:var(--honey); }
   <div class="hero-bg"></div>
   <div class="hero-overlay"></div>
   <div class="hero-content">
-    <div class="hero-tag">退休族健康音樂班 · 台北小班制</div>
+    <div class="hero-tag">
+      <span class="zh">退休族健康音樂班 · 台北小班制</span>
+      <span class="en">Senior Health Music Class · Taipei Small Groups</span>
+    </div>
+    <span class="hero-note en">★ Mandarin instruction available</span>
     <blockquote class="hero-quote">
-      「比唱歌更美好的事情，<br>就只有再多唱一首。」
+      <span class="zh">「比唱歌更美好的事情，<br>就只有再多唱一首。」</span>
+      <span class="en">"The only thing better than singing is<br>more singing."</span>
       <cite>— 艾拉·費茲傑拉 Ella Fitzgerald</cite>
     </blockquote>
-    <p class="hero-sub">零基礎沒關係，學幾個和弦就能唱你最愛的歌</p>
+    <p class="hero-sub">
+      <span class="zh">零基礎沒關係，學幾個和弦就能唱你最愛的歌</span>
+      <span class="en">No experience needed — a few chords and you'll be playing your favorite songs</span>
+    </p>
     <p class="hero-desc">
-      每週四開課。初級班 11:00，進階班 12:30。<br>
-      小班制，文文老師細心陪你每一步。
+      <span class="zh">每週四開課。初級班 11:00，進階班 12:30。<br>小班制，文文老師細心陪你每一步。</span>
+      <span class="en">Classes every Thursday. Beginner 11:00 · Intermediate 12:30.<br>Small groups — Teacher Wenwen guides every step.</span>
     </p>
     <div class="hero-btns">
-      <a href="#courses" class="btn-ghost">先看看有哪些課</a>
+      <a href="#courses" class="btn-ghost">
+        <span class="zh">先看看有哪些課</span>
+        <span class="en">Explore Classes</span>
+      </a>
     </div>
   </div>
-  <div class="scroll-hint">向下捲動</div>
+  <div class="scroll-hint">
+    <span class="zh">向下捲動</span>
+    <span class="en">Scroll</span>
+  </div>
 </div>
 
 <!-- HEALTH BENEFITS BAR -->
 <div style="text-align:center; padding:2.5rem 1rem 0.5rem; background:var(--deep);">
-  <span class="sec-tag" style="color:rgba(212,168,64,0.8);">爲什麽要學習烏克麗麗？</span>
+  <span class="sec-tag" style="color:rgba(212,168,64,0.8);">
+    <span class="zh">爲什麽要學習烏克麗麗？</span>
+    <span class="en">Why Learn Ukulele?</span>
+  </span>
 </div>
 <div class="facts">
   <div class="fact-item reveal">
     <div class="fact-ico">🧠</div>
-    <div class="fact-n">活化大腦</div>
-    <div class="fact-l">延緩認知退化</div>
+    <div class="fact-n"><span class="zh">活化大腦</span><span class="en">Brain Boost</span></div>
+    <div class="fact-l"><span class="zh">延緩認知退化</span><span class="en">Slows cognitive decline</span></div>
   </div>
   <div class="fact-item reveal">
     <div class="fact-ico">🖐️</div>
-    <div class="fact-n">手指靈活</div>
-    <div class="fact-l">減緩手部退化</div>
+    <div class="fact-n"><span class="zh">手指靈活</span><span class="en">Finger Agility</span></div>
+    <div class="fact-l"><span class="zh">減緩手部退化</span><span class="en">Keeps hands nimble</span></div>
   </div>
   <div class="fact-item reveal">
     <div class="fact-ico">👂</div>
-    <div class="fact-n">減緩聽力退化</div>
-    <div class="fact-l">音樂訓練聽覺</div>
+    <div class="fact-n"><span class="zh">減緩聽力退化</span><span class="en">Better Hearing</span></div>
+    <div class="fact-l"><span class="zh">音樂訓練聽覺</span><span class="en">Music trains the ear</span></div>
   </div>
   <div class="fact-item reveal">
     <div class="fact-ico">😊</div>
-    <div class="fact-n">心情開朗</div>
-    <div class="fact-l">減少憂鬱，更快樂</div>
+    <div class="fact-n"><span class="zh">心情開朗</span><span class="en">Mood Lift</span></div>
+    <div class="fact-l"><span class="zh">減少憂鬱，更快樂</span><span class="en">Less stress, more joy</span></div>
   </div>
 </div>
 
@@ -628,38 +584,76 @@ footer a:hover { color:var(--honey); }
   <div class="immersive-bg"></div>
   <div class="immersive-overlay"></div>
   <div class="immersive-content reveal">
-    <span class="sec-tag">音樂對健康的好處</span>
-    <h2 style="color:white">一把小琴，<em style="color:var(--honey)">最溫暖的陪伴</em></h2>
-    <p>每一次撥弦，都是對大腦和手指最輕柔的鍛鍊。唱歌讓耳朵保持敏銳，彈琴讓手指更靈活，這是最自然、最快樂的方式。</p>
-    <p>這裡沒有考試，沒有比較，只有音樂的享受。唱你最愛的那首老歌，心情就好了。</p>
+    <span class="sec-tag">
+      <span class="zh">音樂對健康的好處</span>
+      <span class="en">Music &amp; Wellness</span>
+    </span>
+    <h2 style="color:white">
+      <span class="zh">一把小琴，<em style="color:var(--honey)">最溫暖的陪伴</em></span>
+      <span class="en">One Little Ukulele, <em style="color:var(--honey)">Your Warmest Companion</em></span>
+    </h2>
+    <p>
+      <span class="zh">每一次撥弦，都是對大腦和手指最輕柔的鍛鍊。唱歌讓耳朵保持敏銳，彈琴讓手指更靈活，這是最自然、最快樂的方式。</span>
+      <span class="en">Every strum is gentle exercise for your brain and fingers. Singing keeps your ears sharp, playing keeps your hands flexible — the most natural, joyful way to stay well.</span>
+    </p>
+    <p>
+      <span class="zh">這裡沒有考試，沒有比較，只有音樂的享受。唱你最愛的那首老歌，心情就好了。</span>
+      <span class="en">No tests, no pressure, no comparisons — just the pure joy of music. Play the song you've always loved, and everything feels a little lighter.</span>
+    </p>
   </div>
 </div>
 
-<!-- WHY -->
 <!-- COURSES -->
 <div class="courses-wrap" id="courses">
   <div class="courses-bg"></div>
   <div class="courses-inner">
-    <span class="sec-tag">課程種類</span>
-    <h2>你想唱什麼，<em>我們就彈什麼</em></h2>
+    <span class="sec-tag">
+      <span class="zh">課程種類</span>
+      <span class="en">What We Play</span>
+    </span>
+    <h2>
+      <span class="zh">你想唱什麼，<em>我們就彈什麼</em></span>
+      <span class="en">Whatever You Love to Sing, <em>We'll Play It Together</em></span>
+    </h2>
     <div class="course-grid">
 
       <div class="course-card reveal">
-        <span class="course-tag">初學</span>
-        <h3>🎸 零基礎班</h3>
-        <p>從來沒碰過樂器也沒關係。文文老師從頭帶你，第一堂就彈出一首完整的歌。</p>
+        <span class="course-tag">
+          <span class="zh">初學</span>
+          <span class="en">Beginners</span>
+        </span>
+        <h3>🎸 <span class="zh">零基礎班</span><span class="en">Zero Experience Welcome</span></h3>
+        <p>
+          <span class="zh">從來沒碰過樂器也沒關係。文文老師從頭帶你，第一堂就彈出一首完整的歌。</span>
+          <span class="en">Never touched an instrument? No problem. Teacher Wenwen starts from scratch — you'll play a complete song in your very first class.</span>
+        </p>
       </div>
 
       <div class="course-card reveal">
-        <span class="course-tag">最推薦</span>
-        <h3>🌙 國臺語老歌</h3>
-        <p>鄧麗君、鳳飛飛、江蕙、葉啟田——每一首都是故事，用烏克麗麗唱出來特別有感覺。</p>
+        <span class="course-tag">
+          <span class="zh">最推薦</span>
+          <span class="en">Most Popular</span>
+        </span>
+        <h3>🌙
+          <span class="zh">國臺語老歌</span>
+          <span class="en">Mandarin &amp; Taiwanese Classics<em class="course-bilingual">國臺語老歌</em></span>
+        </h3>
+        <p>
+          <span class="zh">鄧麗君、鳳飛飛、江蕙、葉啟田——每一首都是故事，用烏克麗麗唱出來特別有感覺。</span>
+          <span class="en">Teresa Teng (鄧麗君) · Fong Fei-Fei (鳳飛飛) · Jody Chiang (江蕙) · Yeh Chi-tien (葉啟田) — timeless songs that tell stories, brought to life on ukulele.</span>
+        </p>
       </div>
 
       <div class="course-card reveal">
-        <span class="course-tag">最推薦</span>
-        <h3>🎵 英語老歌</h3>
-        <p>Beatles、Carpenters——那些陪過我們的歌，現在自己拿起烏克麗麗彈出來。</p>
+        <span class="course-tag">
+          <span class="zh">最推薦</span>
+          <span class="en">Fan Favourite</span>
+        </span>
+        <h3>🎵 <span class="zh">英語老歌</span><span class="en">English Oldies</span></h3>
+        <p>
+          <span class="zh">Beatles、Carpenters——那些陪過我們的歌，現在自己拿起烏克麗麗彈出來。</span>
+          <span class="en">Beatles, Carpenters — the songs that defined an era, now yours to play on ukulele.</span>
+        </p>
       </div>
 
     </div>
@@ -670,8 +664,14 @@ footer a:hover { color:var(--honey); }
 <div class="videos-wrap">
   <div class="videos-bg"></div>
   <div class="videos-inner">
-    <span class="sec-tag">老師影片</span>
-    <h2>先聽聽<em>文文老師怎麼彈</em></h2>
+    <span class="sec-tag">
+      <span class="zh">老師影片</span>
+      <span class="en">Watch Teacher Wenwen Play</span>
+    </span>
+    <h2>
+      <span class="zh">先聽聽<em>文文老師怎麼彈</em></span>
+      <span class="en">Hear <em>Teacher Wenwen for Yourself</em></span>
+    </h2>
     <div class="vid-grid">
       <div class="vid-frame reveal">
         <iframe src="https://www.youtube.com/embed/jNik1nj9HIg"
@@ -687,30 +687,42 @@ footer a:hover { color:var(--honey); }
   </div>
 </div>
 
-
 <!-- TEACHER -->
 <div class="teacher-wrap" id="teacher">
   <div class="teacher-bg"></div>
   <div class="teacher-content reveal">
-    <span class="sec-tag">師資介紹</span>
-    <div class="teacher-name">文文老師</div>
-    <div class="teacher-title">爵士底愛唱歌的烏克麗麗老師，陪你探索音樂</div>
+    <span class="sec-tag">
+      <span class="zh">師資介紹</span>
+      <span class="en">Your Teacher</span>
+    </span>
+    <div class="teacher-name">
+      <span class="zh">文文老師</span>
+      <span class="en">Teacher Wenwen</span>
+    </div>
+    <div class="teacher-title">
+      <span class="zh">爵士底愛唱歌的烏克麗麗老師，陪你探索音樂</span>
+      <span class="en">Jazz-rooted, song-loving ukulele teacher · Your musical guide</span>
+    </div>
     <div class="credentials">
       <div class="cred-item">
         <span class="cred-ico">🎓</span>
-        現任功學社復興種子烏克麗麗老師
+        <span class="zh">現任功學社復興種子烏克麗麗老師</span>
+        <span class="en">Current ukulele instructor at Gong-Shiue Music (復興種子)</span>
       </div>
       <div class="cred-item">
         <span class="cred-ico">🏫</span>
-        曾任文山社區大學烏克麗麗專任老師
+        <span class="zh">曾任文山社區大學烏克麗麗專任老師</span>
+        <span class="en">Former full-time ukulele teacher at Wenshan Community College</span>
       </div>
       <div class="cred-item">
         <span class="cred-ico">✨</span>
-        教學10幾年，學員從6歲到70幾歲都有
+        <span class="zh">教學10幾年，學員從6歲到70幾歲都有</span>
+        <span class="en">10+ years teaching · students aged 6 to 70+</span>
       </div>
       <div class="cred-item">
         <span class="cred-ico">🎵</span>
-        讓你第一堂就彈出完整的歌，學了就停不下來
+        <span class="zh">讓你第一堂就彈出完整的歌，學了就停不下來</span>
+        <span class="en">You'll play a complete song in lesson one — and won't want to stop</span>
       </div>
     </div>
   </div>
@@ -718,22 +730,34 @@ footer a:hover { color:var(--honey); }
 
 <!-- CLASS INFO -->
 <section id="class">
-  <span class="sec-tag">課程資訊</span>
-  <h2>來了就知道，<em>很簡單</em></h2>
+  <span class="sec-tag">
+    <span class="zh">課程資訊</span>
+    <span class="en">Class Details</span>
+  </span>
+  <h2>
+    <span class="zh">來了就知道，<em>很簡單</em></span>
+    <span class="en">Simple from <em>Day One</em></span>
+  </h2>
   <div class="class-box">
     <div>
       <div class="info-item">
         <div class="info-ico">📍</div>
         <div>
-          <div class="info-label">地點</div>
-          <div class="info-val">台北市<br><strong>報名後提供詳細地址</strong></div>
+          <div class="info-label"><span class="zh">地點</span><span class="en">Location</span></div>
+          <div class="info-val">
+            <span class="zh">台北市<br><strong>報名後提供詳細地址</strong></span>
+            <span class="en">Taipei City<br><strong>Address provided after registration</strong></span>
+          </div>
         </div>
       </div>
       <div class="info-item">
         <div class="info-ico">👥</div>
         <div>
-          <div class="info-label">班級人數</div>
-          <div class="info-val"><strong>每堂最多 6 人</strong><br>老師一定看得到你</div>
+          <div class="info-label"><span class="zh">班級人數</span><span class="en">Class Size</span></div>
+          <div class="info-val">
+            <span class="zh"><strong>每堂最多 6 人</strong><br>老師一定看得到你</span>
+            <span class="en"><strong>Max 6 per class</strong><br>Personal attention guaranteed</span>
+          </div>
         </div>
       </div>
     </div>
@@ -741,64 +765,134 @@ footer a:hover { color:var(--honey); }
       <div class="info-item">
         <div class="info-ico">💰</div>
         <div>
-          <div class="info-label">費用</div>
+          <div class="info-label"><span class="zh">費用</span><span class="en">Tuition</span></div>
           <div class="info-val">
-            <strong>首堂體驗 NT$499</strong>
+            <span class="zh"><strong>首堂體驗 NT$499</strong></span>
+            <span class="en"><strong>Trial class $19.99 USD</strong></span>
           </div>
         </div>
       </div>
       <div class="info-item">
         <div class="info-ico">🎸</div>
         <div>
-          <div class="info-label">需要帶什麼</div>
-          <div class="info-val">只要來就好<br><strong>琴可以借用</strong>，不用先買</div>
+          <div class="info-label"><span class="zh">需要帶什麼</span><span class="en">What to Bring</span></div>
+          <div class="info-val">
+            <span class="zh">只要來就好<br><strong>琴可以借用</strong>，不用先買</span>
+            <span class="en">Just yourself<br><strong>Ukulele loan available</strong> — no need to buy first</span>
+          </div>
         </div>
       </div>
       <div class="info-item">
         <div class="info-ico">✅</div>
         <div>
-          <div class="info-label">基礎要求</div>
-          <div class="info-val"><strong>完全沒有</strong><br>從來沒碰過樂器的人最歡迎</div>
+          <div class="info-label"><span class="zh">基礎要求</span><span class="en">Prerequisites</span></div>
+          <div class="info-val">
+            <span class="zh"><strong>完全沒有</strong><br>從來沒碰過樂器的人最歡迎</span>
+            <span class="en"><strong>None at all</strong><br>Complete beginners most welcome</span>
+          </div>
         </div>
       </div>
     </div>
   </div>
   <div class="try-box reveal">
-    <h3>第一堂只要 NT$499</h3>
-    <p>來試一次感受看看，不喜歡沒關係，沒有任何壓力。</p>
-    <a href="#booking" class="try-btn">預約體驗課</a>
+    <h3>
+      <span class="zh">第一堂只要 NT$499</span>
+      <span class="en">First Class Only $19.99 USD</span>
+    </h3>
+    <p>
+      <span class="zh">來試一次感受看看，不喜歡沒關係，沒有任何壓力。</span>
+      <span class="en">Come try it once — no pressure, no commitment. If it's not for you, that's perfectly fine.</span>
+    </p>
+    <a href="#booking" class="try-btn">
+      <span class="zh">預約體驗課</span>
+      <span class="en">Book Your Trial</span>
+    </a>
   </div>
 </section>
 
 <!-- FAQ -->
 <div class="faq-wrap" id="faq">
   <div class="faq-inner">
-    <span class="sec-tag">常見問題</span>
-    <h2>你想知道的<em>問題</em></h2>
+    <span class="sec-tag">
+      <span class="zh">常見問題</span>
+      <span class="en">FAQ</span>
+    </span>
+    <h2>
+      <span class="zh">你想知道的<em>問題</em></span>
+      <span class="en">Questions <em>You Might Have</em></span>
+    </h2>
 
     <div class="faq-item">
-      <button class="faq-q" onclick="toggleFaq(this)">完全沒有音樂基礎，真的學得會嗎？</button>
-      <div class="faq-a"><p>完全可以。烏克麗麗只有四條弦，和弦很少，不需要很大力氣。文文老師教過很多從來沒碰過樂器的朋友，第一堂課就彈出了完整的歌。</p></div>
+      <button class="faq-q" onclick="toggleFaq(this)">
+        <span class="zh">完全沒有音樂基礎，真的學得會嗎？</span>
+        <span class="en">I have zero music experience — can I really learn?</span>
+      </button>
+      <div class="faq-a">
+        <p>
+          <span class="zh">完全可以。烏克麗麗只有四條弦，和弦很少，不需要很大力氣。文文老師教過很多從來沒碰過樂器的朋友，第一堂課就彈出了完整的歌。</span>
+          <span class="en">Absolutely. The ukulele has only four strings and uses very few chords — no strength required. Teacher Wenwen has taught many complete beginners who played their first full song in lesson one.</span>
+        </p>
+      </div>
     </div>
     <div class="faq-item">
-      <button class="faq-q" onclick="toggleFaq(this)">我的手有一點抖，可以學嗎？</button>
-      <div class="faq-a"><p>可以。烏克麗麗不需要很精準的手部動作。定期練習反而能幫助手指更協調，老師會配合你的情況調整教法，不用擔心。</p></div>
+      <button class="faq-q" onclick="toggleFaq(this)">
+        <span class="zh">我的手有一點抖，可以學嗎？</span>
+        <span class="en">My hands shake a little — is that okay?</span>
+      </button>
+      <div class="faq-a">
+        <p>
+          <span class="zh">可以。烏克麗麗不需要很精準的手部動作。定期練習反而能幫助手指更協調，老師會配合你的情況調整教法，不用擔心。</span>
+          <span class="en">Yes. Ukulele doesn't require precise hand movements. Regular practice actually helps coordination. Teacher Wenwen adapts to each student — nothing to worry about.</span>
+        </p>
+      </div>
     </div>
     <div class="faq-item">
-      <button class="faq-q" onclick="toggleFaq(this)">需要先買烏克麗麗嗎？</button>
-      <div class="faq-a"><p>不需要，琴可以借用。試過之後再決定要不要買。文文老師可代購 <strong>Anuenue 品牌烏克麗麗</strong>，享學員專屬折扣，想買琴問老師就對了。</p></div>
+      <button class="faq-q" onclick="toggleFaq(this)">
+        <span class="zh">需要先買烏克麗麗嗎？</span>
+        <span class="en">Do I need to buy a ukulele first?</span>
+      </button>
+      <div class="faq-a">
+        <p>
+          <span class="zh">不需要，琴可以借用。試過之後再決定要不要買。文文老師可代購 <strong>Anuenue 品牌烏克麗麗</strong>，享學員專屬折扣，想買琴問老師就對了。</span>
+          <span class="en">No — you can borrow one. Try first, then decide. Teacher Wenwen can arrange <strong>Anuenue brand ukuleles</strong> at a student discount if you'd like to buy later.</span>
+        </p>
+      </div>
     </div>
     <div class="faq-item">
-      <button class="faq-q" onclick="toggleFaq(this)">一週只上一次，學得了嗎？</button>
-      <div class="faq-a"><p>學得了。每堂課學一首完整的歌，回家偶爾彈一下就好。這裡不是為了考試，是為了快樂。每週來唱一小時，就已經很足夠了。</p></div>
+      <button class="faq-q" onclick="toggleFaq(this)">
+        <span class="zh">一週只上一次，學得了嗎？</span>
+        <span class="en">Only once a week — will I actually progress?</span>
+      </button>
+      <div class="faq-a">
+        <p>
+          <span class="zh">學得了。每堂課學一首完整的歌，回家偶爾彈一下就好。這裡不是為了考試，是為了快樂。每週來唱一小時，就已經很足夠了。</span>
+          <span class="en">Yes. Each class teaches one complete song — a little practice at home is all you need. This isn't about exams; it's about joy. One hour of music a week is already wonderful.</span>
+        </p>
+      </div>
     </div>
     <div class="faq-item">
-      <button class="faq-q" onclick="toggleFaq(this)">幾歲的人適合來？</button>
-      <div class="faq-a"><p>沒有年齡限制。文文老師的學員從 6 歲到 70 幾歲都有。音樂不分年齡，只要你有一顆想唱歌的心就夠了。</p></div>
+      <button class="faq-q" onclick="toggleFaq(this)">
+        <span class="zh">幾歲的人適合來？</span>
+        <span class="en">Is there an age requirement?</span>
+      </button>
+      <div class="faq-a">
+        <p>
+          <span class="zh">沒有年齡限制。文文老師的學員從 6 歲到 70 幾歲都有。音樂不分年齡，只要你有一顆想唱歌的心就夠了。</span>
+          <span class="en">No age limit. Teacher Wenwen's students range from age 6 to 70+. Music has no age — all you need is a love of singing.</span>
+        </p>
+      </div>
     </div>
     <div class="faq-item">
-      <button class="faq-q" onclick="toggleFaq(this)">怎麼報名？要先付費嗎？</button>
-      <div class="faq-a"><p>填下面的表單，或直接傳 LINE 給文文老師。不需要先付費，確認時間後再說。第一堂體驗課 NT$499，來了再付，現金、LINE Pay 或轉帳都可以。</p></div>
+      <button class="faq-q" onclick="toggleFaq(this)">
+        <span class="zh">怎麼報名？要先付費嗎？</span>
+        <span class="en">How do I sign up? Do I need to pay upfront?</span>
+      </button>
+      <div class="faq-a">
+        <p>
+          <span class="zh">填下面的表單，或直接傳 LINE 給文文老師。不需要先付費，確認時間後再說。第一堂體驗課 NT$499，來了再付，現金、LINE Pay 或轉帳都可以。</span>
+          <span class="en">Fill in the form below or message Teacher Wenwen on LINE. No upfront payment — confirm your time first. Trial class is $19.99 USD, payable on the day.</span>
+        </p>
+      </div>
     </div>
   </div>
 </div>
@@ -806,7 +900,10 @@ footer a:hover { color:var(--honey); }
 <!-- BOOKING FORM -->
 <div class="booking-section" id="booking">
   <div class="booking-inner">
-    <h2>預約體驗課</h2>
+    <h2>
+      <span class="zh">預約體驗課</span>
+      <span class="en">Book a Trial Class</span>
+    </h2>
 
     <form class="booking-form" action="https://api.web3forms.com/submit" method="POST" onsubmit="handleSubmit(event)">
       <input type="hidden" name="access_key" value="59deb6d1-6126-4b2a-a9c0-51bf89b2860a">
@@ -815,52 +912,79 @@ footer a:hover { color:var(--honey); }
 
       <div class="form-row">
         <div class="form-group">
-          <label for="name">姓名</label>
-          <input type="text" id="name" name="name" placeholder="你的名字" required>
+          <label for="name">
+            <span class="zh">姓名</span>
+            <span class="en">Name</span>
+          </label>
+          <input type="text" id="name" name="name"
+            placeholder="你的名字 / Your name" required>
         </div>
         <div class="form-group">
-          <label for="phone">電話 / LINE ID</label>
-          <input type="text" id="phone" name="phone" placeholder="方便聯繫的方式" required>
+          <label for="phone">
+            <span class="zh">電話 / LINE ID</span>
+            <span class="en">Phone / LINE ID</span>
+          </label>
+          <input type="text" id="phone" name="phone"
+            placeholder="方便聯繫的方式 / Best way to reach you" required>
         </div>
       </div>
 
       <div class="form-group">
         <label for="email">Email</label>
-        <input type="email" id="email" name="email" placeholder="確認信會寄到這裡" required>
+        <input type="email" id="email" name="email"
+          placeholder="確認信會寄到這裡 / Confirmation will be sent here" required>
       </div>
 
       <div>
-        <p class="time-label">想上哪個班？<small style="font-weight:400; font-size:0.8em; color:var(--mid); margin-left:0.5em;">許願時間在備注</small></p>
+        <p class="time-label">
+          <span class="zh">想上哪個班？</span>
+          <span class="en">Which class?</span>
+          <small style="font-weight:400; font-size:0.8em; color:var(--mid); margin-left:0.5em;">
+            <span class="zh">許願時間在備注</span>
+            <span class="en">Note your preferred time in comments</span>
+          </small>
+        </p>
         <div class="time-options">
           <label class="time-option">
             <input type="checkbox" name="time[]" value="初級班 週四 11:00-12:00">
-            <span>初級班 · 週四 11:00 – 12:00</span>
+            <span><span class="zh">初級班 · 週四 11:00 – 12:00</span><span class="en">Beginner · Thu 11:00 – 12:00</span></span>
           </label>
           <label class="time-option">
             <input type="checkbox" name="time[]" value="進階班 週四 12:30-13:30">
-            <span>進階班 · 週四 12:30 – 13:30</span>
+            <span><span class="zh">進階班 · 週四 12:30 – 13:30</span><span class="en">Intermediate · Thu 12:30 – 13:30</span></span>
           </label>
         </div>
       </div>
 
       <div class="form-group">
-        <label for="fav_songs">你最想學的歌曲（填歌名就好）</label>
-        <input type="text" id="fav_songs" name="fav_songs" placeholder="例：甜蜜蜜、Yesterday、月亮代表我的心…">
+        <label for="fav_songs">
+          <span class="zh">你最想學的歌曲（填歌名就好）</span>
+          <span class="en">Songs you'd love to learn</span>
+        </label>
+        <input type="text" id="fav_songs" name="fav_songs"
+          placeholder="例：甜蜜蜜、Yesterday、月亮代表我的心 / e.g. Yesterday, Aloha Oe…">
       </div>
 
       <div class="form-group">
-        <label for="note">備註或想問的問題</label>
-        <textarea id="note" name="note" placeholder="有什麼想先跟老師說的，都可以寫在這裡⋯"></textarea>
+        <label for="note">
+          <span class="zh">備註或想問的問題</span>
+          <span class="en">Notes or questions</span>
+        </label>
+        <textarea id="note" name="note"
+          placeholder="有什麼想先跟老師說的，都可以寫在這裡 / Anything you'd like the teacher to know…"></textarea>
       </div>
 
-      <button type="submit" class="form-submit">送出預約申請</button>
+      <button type="submit" class="form-submit">
+        <span class="zh">送出預約申請</span>
+        <span class="en">Submit My Request</span>
+      </button>
     </form>
 
     <div class="form-success" id="formSuccess">
-      <p>♪ 已收到你的預約申請！</p>
+      <p>♪ <span class="zh">已收到你的預約申請！</span><span class="en">Your booking request has been received!</span></p>
       <p style="font-size:1rem; margin-top:1rem; line-height:2; color:rgba(212,168,64,0.75);">
-        文文老師會盡快與你聯繫確認時間。<br>
-        期待在課堂上見到你！
+        <span class="zh">文文老師會盡快與你聯繫確認時間。<br>期待在課堂上見到你！</span>
+        <span class="en">Teacher Wenwen will be in touch shortly to confirm your time.<br>Can't wait to see you in class!</span>
       </p>
     </div>
   </div>
@@ -868,7 +992,10 @@ footer a:hover { color:var(--honey); }
 
 <!-- FOOTER -->
 <footer>
-  <p>© 2026 歡唱烏克麗麗 &nbsp;·&nbsp; 文文老師烏克麗麗小班 &nbsp;·&nbsp; 台北</p>
+  <p>
+    <span class="zh">© 2026 歡唱烏克麗麗 &nbsp;·&nbsp; 文文老師烏克麗麗小班 &nbsp;·&nbsp; 台北</span>
+    <span class="en">© 2026 Huan Chang Ukulele &nbsp;·&nbsp; Teacher Wenwen's Ukulele Studio &nbsp;·&nbsp; Taipei</span>
+  </p>
 </footer>
 
 <script>
@@ -907,6 +1034,20 @@ const observer = new IntersectionObserver(entries => {
   entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('on'); });
 }, { threshold: 0.1 });
 document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+// Language toggle
+const savedLang = localStorage.getItem('ukulele-lang') || 'zh';
+document.body.className = 'lang-' + savedLang;
+document.getElementById('langBtn').textContent = savedLang === 'zh' ? 'EN' : '中文';
+
+function toggleLang() {
+  const isZh = document.body.classList.contains('lang-zh');
+  document.body.classList.toggle('lang-zh', !isZh);
+  document.body.classList.toggle('lang-en', isZh);
+  const newLang = isZh ? 'en' : 'zh';
+  localStorage.setItem('ukulele-lang', newLang);
+  document.getElementById('langBtn').textContent = isZh ? '中文' : 'EN';
+}
 
 // Form submission
 async function handleSubmit(e) {
