@@ -239,8 +239,39 @@ h2 em { color:var(--koa); font-style:normal; font-weight:bold; }
   font-size:0.85rem; color:rgba(212,168,64,0.65); line-height:1.8;
 }
 
-/* ── SPECIAL COURSE ── */
-.special-wrap { background:var(--deep); padding:4rem 2rem; }
+/* ── SPECIAL COURSE TICKER ── */
+.special-ticker-wrap {
+  background:var(--koa); display:flex; align-items:stretch;
+  overflow:hidden; border-top:1px solid rgba(255,255,255,0.08);
+  border-bottom:1px solid rgba(255,255,255,0.08);
+}
+.special-ticker-label {
+  flex-shrink:0; padding:1.1rem 1.6rem; background:var(--honey);
+  color:var(--deep); font-size:0.78rem; font-weight:800;
+  letter-spacing:0.15em; text-transform:uppercase;
+  display:flex; align-items:center; white-space:nowrap;
+}
+.special-ticker-scroll { flex:1; overflow:hidden; }
+.special-ticker-track {
+  display:flex; gap:0; white-space:nowrap;
+  animation:special-scroll 22s linear infinite;
+}
+@keyframes special-scroll {
+  0%   { transform:translateX(0); }
+  100% { transform:translateX(-50%); }
+}
+.special-ticker-track span,
+.special-ticker-track a {
+  display:inline-flex; align-items:center;
+  padding:1.1rem 1.4rem; color:rgba(255,255,255,0.85);
+  font-size:1rem; text-decoration:none; white-space:nowrap;
+}
+.special-ticker-track a { color:var(--honey); font-weight:700; }
+.special-ticker-track a:hover { color:white; }
+.stk-dot { color:rgba(255,255,255,0.25) !important; padding:0 0.2rem !important; }
+
+/* ── OLD SPECIAL (kept for reference) ── */
+.special-wrap { background:var(--deep); padding:4rem 2rem; display:none; }
 .special-inner { max-width:900px; margin:0 auto; }
 .special-box {
   border:1px solid rgba(212,168,64,0.4); border-radius:3px; padding:2.8rem 3rem;
@@ -436,8 +467,17 @@ footer a:hover { color:var(--honey); }
     letter-spacing:0.05em; text-decoration:none; box-shadow:0 4px 20px rgba(212,168,64,0.5);
     white-space:nowrap;
   }
+  /* prevent single-character orphans in Chinese text */
+  h1, h2, h3, .teacher-name, .day-name, .card-title, .cred-item {
+    text-wrap: balance;
+    overflow-wrap: break-word;
+  }
+  p, .hero-desc, .hero-sub, .immersive-content p, .booking-sub {
+    text-wrap: pretty;
+    overflow-wrap: break-word;
+  }
   .hero-content { padding:1.2rem; }
-  .hero h1 { font-size:2rem; line-height:1.25; }
+  .hero h1 { font-size:1.75rem; line-height:1.3; }
   .hero-sub { font-size:1rem; }
   .hero-desc { font-size:0.95rem; margin-bottom:2rem; }
   .hero-btns { flex-direction:column; align-items:center; gap:0.8rem; }
@@ -450,27 +490,29 @@ footer a:hover { color:var(--honey); }
   .booking-section, .videos-wrap { padding:3.5rem 1.2rem; }
   .immersive-bg, .courses-bg, .videos-bg, .teacher-bg { background-attachment:scroll; }
   .immersive-content { padding:3.5rem 1.4rem; max-width:100%; }
-  .immersive-content h2 { font-size:1.8rem; }
+  .immersive-content h2 { font-size:1.6rem; }
   .immersive-content p { font-size:0.98rem; }
   .cards { grid-template-columns:1fr; gap:1rem; }
   .card { padding:2rem 1.4rem; }
   .special-box { grid-template-columns:1fr; text-align:center; padding:2rem 1.4rem; }
-  .special-box h3 { font-size:1.5rem; }
+  .special-box h3 { font-size:1.35rem; }
   .special-wrap { padding:3rem 1.2rem; }
   .course-grid { grid-template-columns:1fr; }
   .course-card { padding:1.8rem 1.4rem; }
   .vid-grid { grid-template-columns:1fr; gap:1.2rem; }
   .schedule-grid { grid-template-columns:1fr !important; max-width:100% !important; }
   .class-box { grid-template-columns:1fr; gap:0; padding:1.8rem 1.2rem; }
-  .teacher-name { font-size:1.8rem; }
-  .cred-item { padding:1rem 1.2rem; font-size:0.95rem; }
+  .teacher-name { font-size:1.45rem; line-height:1.4; }
+  .cred-item { padding:1rem 1.2rem; font-size:0.92rem; }
   .faq-q { font-size:1.05rem; padding:1.2rem 0; }
   .form-row { grid-template-columns:1fr; }
-  .booking-inner h2 { font-size:1.8rem; }
-  h2 { font-size:1.9rem; }
+  .booking-inner h2 { font-size:1.55rem; }
+  h2 { font-size:1.7rem; }
 }
 @media(max-width:400px) {
-  .hero h1 { font-size:1.7rem; }
+  .hero h1 { font-size:1.5rem; }
+  h2 { font-size:1.5rem; }
+  .teacher-name { font-size:1.25rem; }
   .facts { padding:1.5rem 0.8rem; }
   .fact-n { font-size:0.9rem; }
 }
@@ -513,11 +555,11 @@ footer a:hover { color:var(--honey); }
   <div class="hero-overlay"></div>
   <div class="hero-content">
     <div class="hero-tag">退休族健康音樂班 · 台北小班制</div>
-    <h1>彈一首老歌，<em>活得更健康更快樂</em></h1>
-    <p class="hero-sub">不需要任何音樂基礎，學幾個簡單和弦，就能唱你最愛的歌</p>
+    <h1>彈一首老歌，<em>快樂又健康</em></h1>
+    <p class="hero-sub">零基礎沒關係，學幾個和弦就能唱你最愛的歌</p>
     <p class="hero-desc">
-      每週四開課。初級班 11:00–12:00，進階班 12:30–13:30。<br>
-      每堂最多 6 人，文文老師細心陪伴每一位學員。
+      每週四開課。初級班 11:00，進階班 12:30。<br>
+      小班制，文文老師細心陪你每一步。
     </p>
     <div class="hero-btns">
       <a href="#booking" class="btn-fill">預約體驗課</a>
@@ -557,9 +599,9 @@ footer a:hover { color:var(--honey); }
   <div class="immersive-overlay"></div>
   <div class="immersive-content reveal">
     <span class="sec-tag">音樂對健康的好處</span>
-    <h2 style="color:white">一把小琴，<em style="color:var(--honey)">你最好的健康伴侶</em></h2>
-    <p>研究顯示，學習音樂能活化大腦神經、延緩老化。每一次撥弦，都是對大腦和手指最溫柔的鍛鍊。持續練習還能訓練聽覺敏銳度，讓耳朵保持靈活。</p>
-    <p>更重要的是——唱你最愛的老歌，心情自然就好了。音樂是最天然的快樂來源，每堂課都是最美好的時光。</p>
+    <h2 style="color:white">一把小琴，<em style="color:var(--honey)">最溫暖的陪伴</em></h2>
+    <p>每一次撥弦，都是對大腦和手指最輕柔的鍛鍊。唱歌讓耳朵保持敏銳，彈琴讓手指更靈活，這是最自然、最快樂的方式。</p>
+    <p>這裡沒有考試，沒有比較，只有音樂的享受。唱你最愛的那首老歌，心情就好了。</p>
   </div>
 </div>
 
@@ -567,23 +609,23 @@ footer a:hover { color:var(--honey); }
 <div class="reasons-wrap">
   <div class="reasons">
     <span class="sec-tag">為什麼選烏克麗麗</span>
-    <h2>最適合退休族的<em>入門樂器</em></h2>
-    <p class="lead">輕巧、好上手、聲音溫暖，任何年齡都能學。</p>
+    <h2>退休生活最棒的<em>音樂選擇</em></h2>
+    <p class="lead">輕巧好上手，聲音溫暖，任何年齡都能學。</p>
     <div class="cards">
       <div class="card reveal">
         <div class="card-ico">🧠</div>
         <h3>活化大腦</h3>
-        <p>記歌詞、練節奏、學和弦，每次上課都讓大腦充分運轉。是最有趣、最溫和的腦部鍛鍊，幫助延緩認知退化。</p>
+        <p>記歌詞、學和弦、跟著節奏彈，大腦自然就動起來了。最有趣的方式，讓腦筋保持靈活。</p>
       </div>
       <div class="card reveal">
         <div class="card-ico">🖐️</div>
         <h3>手指更靈活</h3>
-        <p>彈烏克麗麗需要左右手協調，每次練習都在活動手指關節。對於擔心手部退化的朋友，這是最溫和有效的方式。</p>
+        <p>撥弦、換和弦，每次練習都輕輕活動手指。擔心手部退化的朋友，這是最溫和的方式。</p>
       </div>
       <div class="card reveal">
         <div class="card-ico">😊</div>
         <h3>心情更開朗</h3>
-        <p>唱歌彈琴讓人快樂，也讓人與人之間更親近。每堂課一起笑著唱老歌，是最自然的快樂處方，遠離憂鬱。</p>
+        <p>一起唱熟悉的老歌，笑聲最多。沒有壓力，沒有比較，只有快樂——這就是每堂課的樣子。</p>
       </div>
     </div>
   </div>
@@ -600,42 +642,45 @@ footer a:hover { color:var(--honey); }
 
       <div class="course-card reveal">
         <span class="course-tag">最推薦</span>
-        <h3>🌙 國語老歌彈唱</h3>
-        <p>鄧麗君、鳳飛飛、劉文正——那些陪伴我們幾十年的旋律，用烏克麗麗唱出來，特別溫暖療癒。</p>
+        <h3>🌙 國語老歌</h3>
+        <p>鄧麗君、鳳飛飛、劉文正——熟悉的旋律，用烏克麗麗唱出來，特別溫暖。</p>
       </div>
 
       <div class="course-card reveal">
         <span class="course-tag">最推薦</span>
-        <h3>🎶 台語老歌彈唱</h3>
-        <p>江蕙、鳳飛飛、葉啟田——台語老歌有種說不出的親切感，每一句都是記憶，每一首都是故事。</p>
+        <h3>🎶 台語老歌</h3>
+        <p>江蕙、葉啟田——每一首都是故事，每一句都覺得親切，唱起來特別有感覺。</p>
       </div>
 
       <div class="course-card reveal">
         <span class="course-tag">最推薦</span>
-        <h3>🎵 英語老歌彈唱</h3>
-        <p>老鷹合唱團、Beatles、Carpenters——這些歌陪了我們幾十年，現在換你拿起烏克麗麗，自己彈出來。</p>
+        <h3>🎵 英語老歌</h3>
+        <p>Beatles、Carpenters——那些陪過我們的歌，現在自己拿起烏克麗麗彈出來。</p>
       </div>
 
       <div class="course-card reveal">
-        <span class="course-tag">Beginner</span>
-        <h3>🎸 初學班</h3>
-        <p>完全沒碰過樂器？完全沒關係。文文老師從最基本的地方帶你開始，第一堂課就能彈出一首完整的歌。</p>
+        <span class="course-tag">初學</span>
+        <h3>🎸 零基礎班</h3>
+        <p>從來沒碰過樂器也沒關係。文文老師從頭帶你，第一堂就彈出一首完整的歌。</p>
       </div>
 
     </div>
   </div>
 </div>
 
-<!-- SPECIAL COURSE -->
-<div class="special-wrap">
-  <div class="special-inner">
-    <div class="special-box reveal">
-      <div>
-        <span class="special-tag">✦ 特別課程</span>
-        <h3>「老祖宗保佑我」</h3>
-        <p>一首人人都聽過的輕鬆旋律，只需要最基本的幾個和弦，讓你在第一堂課就立刻上手烏克麗麗。<br>彈過這首，你就知道——原來學琴這麼簡單、這麼開心。</p>
-      </div>
-      <a href="#booking" class="special-cta">預約體驗課</a>
+<!-- SPECIAL COURSE TICKER -->
+<div class="special-ticker-wrap">
+  <div class="special-ticker-label">✦ 特別課程</div>
+  <div class="special-ticker-scroll">
+    <div class="special-ticker-track">
+      <span>🎵 「老祖宗保佑我」</span><span class="stk-dot">·</span>
+      <span>第一堂就彈出完整一首歌</span><span class="stk-dot">·</span>
+      <span>學過才知道——原來這麼簡單，這麼開心</span><span class="stk-dot">·</span>
+      <a href="#booking">立即預約體驗 →</a><span class="stk-dot">·</span>
+      <span>🎵 「老祖宗保佑我」</span><span class="stk-dot">·</span>
+      <span>第一堂就彈出完整一首歌</span><span class="stk-dot">·</span>
+      <span>學過才知道——原來這麼簡單，這麼開心</span><span class="stk-dot">·</span>
+      <a href="#booking">立即預約體驗 →</a><span class="stk-dot">·</span>
     </div>
   </div>
 </div>
@@ -645,8 +690,8 @@ footer a:hover { color:var(--honey); }
   <div class="videos-bg"></div>
   <div class="videos-inner">
     <span class="sec-tag">老師影片</span>
-    <h2>先聽聽<em>烏克麗麗的聲音</em></h2>
-    <p class="lead">文文老師的演奏與彈唱，讓你感受一下這把小琴能帶出什麼樣的音樂。</p>
+    <h2>先聽聽<em>文文老師怎麼彈</em></h2>
+    <p class="lead">演奏和彈唱各一支，感受一下這把小琴的聲音。</p>
     <div class="vid-grid">
       <div class="vid-frame reveal">
         <iframe src="https://www.youtube.com/embed/jNik1nj9HIg"
@@ -710,7 +755,7 @@ footer a:hover { color:var(--honey); }
     <div class="credentials">
       <div class="cred-item">
         <span class="cred-ico">🎓</span>
-        現任功學社復興種子烏克麗麗老師——全台最具公信力音樂老師
+        現任功學社復興種子烏克麗麗老師
       </div>
       <div class="cred-item">
         <span class="cred-ico">🏫</span>
@@ -718,11 +763,11 @@ footer a:hover { color:var(--honey); }
       </div>
       <div class="cred-item">
         <span class="cred-ico">✨</span>
-        烏克麗麗教學資歷10幾年，帶過從6歲到70歲的學員
+        教學10幾年，學員從6歲到70幾歲都有
       </div>
       <div class="cred-item">
         <span class="cred-ico">🎵</span>
-        擅長讓初學者在第一堂課就彈出完整的歌，建立持續學習的成就感
+        讓你第一堂就彈出完整的歌，學了就停不下來
       </div>
     </div>
   </div>
@@ -731,8 +776,8 @@ footer a:hover { color:var(--honey); }
 <!-- CLASS INFO -->
 <section id="class">
   <span class="sec-tag">課程資訊</span>
-  <h2>簡單清楚，<em>沒有複雜的事</em></h2>
-  <p class="lead">一切都很輕鬆，來了就知道。</p>
+  <h2>來了就知道，<em>很簡單</em></h2>
+  <p class="lead">沒有複雜的規定，來上課就好。</p>
   <div class="class-box">
     <div>
       <div class="info-item">
@@ -773,7 +818,7 @@ footer a:hover { color:var(--honey); }
         <div class="info-ico">🎸</div>
         <div>
           <div class="info-label">需要帶什麼</div>
-          <div class="info-val">只需要來就好<br><strong>烏克麗麗可借用</strong>，不用自己買</div>
+          <div class="info-val">只要來就好<br><strong>琴可以借用</strong>，不用先買</div>
         </div>
       </div>
       <div class="info-item">
@@ -787,7 +832,7 @@ footer a:hover { color:var(--honey); }
   </div>
   <div class="try-box reveal">
     <h3>第一堂只要 NT$499</h3>
-    <p>來試一次，感受看看。不喜歡完全沒關係，沒有任何壓力。</p>
+    <p>來試一次感受看看，不喜歡沒關係，沒有任何壓力。</p>
     <a href="#booking" class="try-btn">預約體驗課</a>
   </div>
 </section>
@@ -796,31 +841,31 @@ footer a:hover { color:var(--honey); }
 <div class="faq-wrap" id="faq">
   <div class="faq-inner">
     <span class="sec-tag">常見問題</span>
-    <h2>你可能想問的<em>問題</em></h2>
+    <h2>你想知道的<em>問題</em></h2>
 
     <div class="faq-item">
-      <button class="faq-q" onclick="toggleFaq(this)">我年紀大了，完全沒有音樂基礎，真的學得會嗎？</button>
-      <div class="faq-a"><p>完全可以。烏克麗麗是所有樂器裡最友善的入門樂器——只有四條弦，和弦很少，手不需要很大的力氣。研究也顯示，年紀大的人學音樂反而進步得很紮實，因為更專注、更認真。文文老師教過很多從來沒碰過樂器的學員，第一堂課就彈出了完整的歌。</p></div>
+      <button class="faq-q" onclick="toggleFaq(this)">完全沒有音樂基礎，真的學得會嗎？</button>
+      <div class="faq-a"><p>完全可以。烏克麗麗只有四條弦，和弦很少，不需要很大力氣。文文老師教過很多從來沒碰過樂器的朋友，第一堂課就彈出了完整的歌。</p></div>
     </div>
     <div class="faq-item">
-      <button class="faq-q" onclick="toggleFaq(this)">我的手有一點抖，這樣可以學嗎？</button>
-      <div class="faq-a"><p>可以的。烏克麗麗不需要很精準的手部動作，節奏和音樂感比手部穩定度更重要。事實上，定期練習烏克麗麗能幫助改善手部的協調性和穩定度，很多學員反映越練越好。老師會根據每個人的情況調整教法，不用擔心。</p></div>
+      <button class="faq-q" onclick="toggleFaq(this)">我的手有一點抖，可以學嗎？</button>
+      <div class="faq-a"><p>可以。烏克麗麗不需要很精準的手部動作。定期練習反而能幫助手指更協調，老師會配合你的情況調整教法，不用擔心。</p></div>
     </div>
     <div class="faq-item">
-      <button class="faq-q" onclick="toggleFaq(this)">我需要先買一把烏克麗麗嗎？</button>
-      <div class="faq-a"><p>不需要。上課的烏克麗麗可以借用，試過之後再決定要不要買。文文老師可代購 <strong>Anuenue 品牌烏克麗麗</strong>，享學員專屬折扣，品質有保證。建議先來試上看看，喜歡再買，老師幫你挑最適合的。</p></div>
+      <button class="faq-q" onclick="toggleFaq(this)">需要先買烏克麗麗嗎？</button>
+      <div class="faq-a"><p>不需要，琴可以借用。試過之後再決定要不要買。文文老師可代購 <strong>Anuenue 品牌烏克麗麗</strong>，享學員專屬折扣，想買琴問老師就對了。</p></div>
     </div>
     <div class="faq-item">
       <button class="faq-q" onclick="toggleFaq(this)">一週只上一次，學得了嗎？</button>
-      <div class="faq-a"><p>學得了。每堂課學一首完整的歌，回家只需要偶爾彈一下，不需要花很多時間練習。重要的是每週來上課的這一小時，在這裡學、在這裡唱，就已經很足夠了。學音樂不是為了考試，是為了快樂。</p></div>
+      <div class="faq-a"><p>學得了。每堂課學一首完整的歌，回家偶爾彈一下就好。這裡不是為了考試，是為了快樂。每週來唱一小時，就已經很足夠了。</p></div>
     </div>
     <div class="faq-item">
-      <button class="faq-q" onclick="toggleFaq(this)">這個課程適合幾歲的人？</button>
-      <div class="faq-a"><p>沒有年齡限制。文文老師的學員從 6 歲到 70 幾歲都有。退休後的時間最寶貴，用來學音樂是最好的投資。音樂不分年齡，只要你有一顆想唱歌的心就夠了。</p></div>
+      <button class="faq-q" onclick="toggleFaq(this)">幾歲的人適合來？</button>
+      <div class="faq-a"><p>沒有年齡限制。文文老師的學員從 6 歲到 70 幾歲都有。音樂不分年齡，只要你有一顆想唱歌的心就夠了。</p></div>
     </div>
     <div class="faq-item">
       <button class="faq-q" onclick="toggleFaq(this)">怎麼報名？要先付費嗎？</button>
-      <div class="faq-a"><p>很簡單，填下面的表單或傳 LINE 給文文老師就好。不需要先付費，確認時間之後再說。第一堂體驗課只要 NT$499，來了再付，可以現金、LINE Pay 或轉帳。</p></div>
+      <div class="faq-a"><p>填下面的表單，或直接傳 LINE 給文文老師。不需要先付費，確認時間後再說。第一堂體驗課 NT$499，來了再付，現金、LINE Pay 或轉帳都可以。</p></div>
     </div>
   </div>
 </div>
@@ -829,8 +874,8 @@ footer a:hover { color:var(--honey); }
 <div class="contact-wrap" id="contact">
   <div class="contact-bg"></div>
   <div class="contact-content">
-    <h2>直接傳訊息給文文老師</h2>
-    <p>說「我想預約體驗課」就好，老師會親切回覆你。</p>
+    <h2>傳訊息給文文老師</h2>
+    <p>說「我想預約體驗課」就好，老師會親切回覆。</p>
     <div class="contact-btns">
       <a href="https://line.me/ti/p/airbnbsnow" target="_blank" class="contact-btn btn-line">LINE 傳訊息</a>
       <a href="mailto:ukulelewenwen@gmail.com" class="contact-btn btn-email">寄電子郵件</a>
