@@ -181,7 +181,7 @@ nav.scrolled {
 }
 .immersive-content {
   position:relative; z-index:2;
-  padding:5rem 3rem 5rem 8%; max-width:620px;
+  padding:5rem 3rem; max-width:660px;
 }
 .immersive-content .sec-tag { color:var(--honey); opacity:0.7; }
 .immersive-content h2 { color:white; margin-bottom:1.4rem; }
@@ -190,7 +190,7 @@ nav.scrolled {
 /* ── SECTION BASE ── */
 section { padding:6rem 2rem; max-width:900px; margin:0 auto; }
 .sec-tag { font-size:0.72rem; letter-spacing:0.22em; text-transform:uppercase; color:var(--ocean); margin-bottom:1rem; display:block; }
-h2 { font-family:var(--serif); font-size:clamp(2rem,4vw,3rem); font-weight:400; line-height:1.2; margin-bottom:1.4rem; }
+h2 { font-family:var(--serif); font-size:clamp(1.7rem,2.8vw,2.4rem); font-weight:400; line-height:1.3; margin-bottom:1.4rem; }
 h2 em { color:var(--koa); font-style:normal; font-weight:bold; }
 .lead { font-size:1.05rem; line-height:2; color:var(--mid); margin-bottom:3rem; }
 
@@ -467,15 +467,8 @@ footer a:hover { color:var(--honey); }
     letter-spacing:0.05em; text-decoration:none; box-shadow:0 4px 20px rgba(212,168,64,0.5);
     white-space:nowrap;
   }
-  /* prevent single-character orphans in Chinese text */
-  h2, h3, .teacher-name, .day-name, .card-title, .cred-item {
-    text-wrap: balance;
-    overflow-wrap: break-word;
-  }
-  p, .hero-desc, .hero-sub, .immersive-content p, .booking-sub {
-    text-wrap: pretty;
-    overflow-wrap: break-word;
-  }
+  /* prevent overflow */
+  h1, h2, h3, .teacher-name { overflow-wrap: break-word; }
   .hero-content { padding:1.2rem; }
   .hero h1 { font-size:1.45rem; line-height:1.35; overflow-wrap: break-word; }
   .hero-sub { font-size:1rem; }
@@ -490,7 +483,7 @@ footer a:hover { color:var(--honey); }
   .booking-section, .videos-wrap { padding:3.5rem 1.2rem; }
   .immersive-bg, .courses-bg, .videos-bg, .teacher-bg { background-attachment:scroll; }
   .immersive-content { padding:3.5rem 1.4rem; max-width:100%; }
-  .immersive-content h2 { font-size:1.6rem; }
+  .immersive-content h2 { font-size:1.45rem; }
   .immersive-content p { font-size:0.98rem; }
   .cards { grid-template-columns:1fr; gap:1rem; }
   .card { padding:2rem 1.4rem; }
@@ -506,13 +499,13 @@ footer a:hover { color:var(--honey); }
   .cred-item { padding:1rem 1.2rem; font-size:0.92rem; }
   .faq-q { font-size:1.05rem; padding:1.2rem 0; }
   .form-row { grid-template-columns:1fr; }
-  .booking-inner h2 { font-size:1.55rem; }
-  h2 { font-size:1.7rem; }
+  .booking-inner h2 { font-size:1.4rem; }
+  h2 { font-size:1.5rem; }
 }
 @media(max-width:400px) {
   .hero h1 { font-size:1.35rem; }
-  h2 { font-size:1.5rem; }
-  .teacher-name { font-size:1.25rem; }
+  h2 { font-size:1.35rem; }
+  .teacher-name { font-size:1.2rem; }
   .facts { padding:1.5rem 0.8rem; }
   .fact-n { font-size:0.9rem; }
 }
