@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>特別課程｜老祖宗保佑我 × 烏克麗麗 — 歡唱</title>
+<meta name="description" content="迪士尼花木蘭神曲「老祖宗保佑我」，台灣尾牙季最夯開運曲，現在用烏克麗麗學起來！一堂課就會彈唱，文文老師帶你感受花家黑魔法。">
+
+<style>
+:root {
+  --cream:  #FAF4E8;
+  --warm:   #FEFAF2;
+  --koa:    #C07840;
+  --ocean:  #3D7A73;
+  --deep:   #140C02;
+  --mid:    #4A300F;
+  --honey:  #D4A840;
+  --serif:  'Georgia', 'Times New Roman', serif;
+  --sans:   -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+}
+* { margin:0; padding:0; box-sizing:border-box; }
+html { scroll-behavior:smooth; }
+body { font-family:var(--sans); font-size:18px; background:var(--warm); color:var(--deep); overflow-x:hidden; overflow-wrap:break-word; }
+h1, h2, h3 { text-wrap:balance; }
+
+/* ── NAV ── */
+nav {
+  position:fixed; top:0; left:0; right:0; z-index:300;
+  display:flex; align-items:center; justify-content:space-between;
+  padding:1rem 2.5rem;
+  background:rgba(20,12,2,0.85); backdrop-filter:blur(12px);
+  border-bottom:1px solid rgba(212,168,64,0.15);
+  transition:all 0.3s;
+}
+.logo { font-family:var(--serif); font-size:1.3rem; color:white; text-decoration:none; letter-spacing:0.08em; }
+.logo span { color:var(--honey); }
+.nav-links { display:flex; align-items:center; gap:2rem; }
+.nav-links a { color:rgba(255,255,255,0.75); text-decoration:none; font-size:0.9rem; letter-spacing:0.05em; transition:color 0.2s; }
+.nav-links a:hover { color:var(--honey); }
+.nav-cta {
+  background:transparent; border:1px solid var(--honey); color:var(--honey) !important;
+  padding:0.5rem 1.3rem; border-radius:1px; letter-spacing:0.08em; transition:all 0.3s !important;
+}
+.nav-cta:hover { background:var(--honey) !important; color:var(--deep) !important; }
+@media(max-width:600px) {
+  nav { padding:0.9rem 1.2rem; }
+  .nav-links { gap:1rem; }
+  .nav-links a { font-size:0.8rem; }
+}
+
+/* ── HERO ── */
+.hero {
+  position:relative; min-height:92vh;
+  display:flex; align-items:center; justify-content:center;
+  text-align:center; overflow:hidden;
+  padding-top:4rem;
+}
+.hero-bg {
+  position:absolute; inset:0; z-index:0;
+  background-image: url('https://images.pexels.com/photos/7220677/pexels-photo-7220677.jpeg?auto=compress&cs=tinysrgb&w=1920&q=85');
+  background-size:cover; background-position:center 20%;
+  transform:scale(1.03);
+  animation: slowzoom 20s ease-in-out infinite alternate;
+}
+@keyframes slowzoom {
+  from { transform:scale(1.03); }
+  to   { transform:scale(1.08); }
+}
+.hero-overlay {
+  position:absolute; inset:0; z-index:1;
+  background: linear-gradient(
+    to bottom,
+    rgba(20,12,2,0.6) 0%,
+    rgba(20,12,2,0.75) 50%,
+    rgba(20,12,2,0.95) 100%
+  );
+}
+.hero-content { position:relative; z-index:2; padding:2rem; max-width:780px; }
+.hero-tag {
+  display:inline-block; font-size:0.8rem; letter-spacing:0.2em;
+  color:var(--honey); margin-bottom:1.6rem;
+  padding:0.4rem 1.4rem; border:1px solid rgba(212,168,64,0.4); border-radius:20px;
+}
+.hero h1 {
+  font-family:var(--serif); font-size:clamp(2rem,5vw,3.6rem);
+  font-weight:400; line-height:1.25; color:white; margin-bottom:1rem;
+  text-shadow: 0 2px 24px rgba(0,0,0,0.5);
+}
+.hero h1 em { color:var(--honey); font-style:normal; font-weight:bold; }
+.hero-quote {
+  font-family:var(--serif); font-size:1rem; font-style:italic;
+  color:rgba(255,255,255,0.65); letter-spacing:0.06em; line-height:1.9;
+  margin:0 auto 1.8rem; max-width:480px;
+}
+.hero-quote cite {
+  display:block; font-style:normal; font-size:0.78rem;
+  color:var(--honey); margin-top:0.5rem; letter-spacing:0.18em;
+}
+.hero-sub { font-size:1.1rem; color:rgba(255,255,255,0.8); margin-bottom:2.5rem; line-height:1.75; }
+.hero-btns { display:flex; gap:1.2rem; justify-content:center; flex-wrap:wrap; }
+.btn-fill {
+  background:var(--honey); color:var(--deep); padding:1.1rem 2.6rem;
+  text-decoration:none; font-size:1rem; letter-spacing:0.06em;
+  border-radius:1px; transition:all 0.3s; font-weight:700;
+}
+.btn-fill:hover { background:white; }
+.btn-ghost {
+  border:1px solid rgba(255,255,255,0.4); color:white; padding:1.1rem 2.4rem;
+  text-decoration:none; font-size:1rem; letter-spacing:0.06em;
+  border-radius:1px; transition:all 0.3s;
+}
+.btn-ghost:hover { border-color:var(--honey); color:var(--honey); }
+
+/* ── STORY ── */
+.story {
+  max-width:860px; margin:0 auto; padding:6rem 2rem;
+}
+.sec-tag {
+  display:inline-block; font-size:0.78rem; letter-spacing:0.22em;
+  text-transform:uppercase; color:var(--koa); margin-bottom:1rem;
+  border-bottom:1px solid var(--koa); padding-bottom:0.3rem;
+}
+.story h2 {
+  font-family:var(--serif); font-size:clamp(1.6rem,3.5vw,2.4rem);
+  font-weight:400; line-height:1.35; margin-bottom:1.6rem;
+  color:var(--deep);
+}
+.story h2 em { color:var(--koa); font-style:normal; }
+.story p {
+  font-size:1.05rem; line-height:2; color:var(--mid);
+  margin-bottom:1.4rem; max-width:680px;
+}
+.story-highlight {
+  background:var(--cream); border-left:3px solid var(--honey);
+  padding:1.4rem 2rem; margin:2.5rem 0;
+  font-family:var(--serif); font-size:1.1rem; line-height:1.85;
+  color:var(--mid); font-style:italic;
+}
+
+/* ── WHAT YOU LEARN ── */
+.learn-section {
+  background:var(--deep); padding:6rem 2rem;
+}
+.learn-inner {
+  max-width:860px; margin:0 auto;
+}
+.learn-inner .sec-tag { color:var(--honey); border-color:var(--honey); }
+.learn-inner h2 {
+  font-family:var(--serif); font-size:clamp(1.6rem,3.5vw,2.4rem);
+  font-weight:400; line-height:1.35; margin-bottom:3rem;
+  color:white;
+}
+.learn-inner h2 em { color:var(--honey); font-style:normal; }
+.learn-grid {
+  display:grid; grid-template-columns:repeat(auto-fit, minmax(240px,1fr));
+  gap:2rem;
+}
+.learn-card {
+  border:1px solid rgba(212,168,64,0.2); padding:2rem 1.6rem;
+  border-radius:2px;
+}
+.learn-card-num {
+  font-family:var(--serif); font-size:2.2rem; color:var(--honey);
+  opacity:0.5; line-height:1; margin-bottom:1rem;
+}
+.learn-card h3 {
+  font-size:1.05rem; font-weight:600; color:white; margin-bottom:0.7rem;
+}
+.learn-card p { font-size:0.9rem; line-height:1.8; color:rgba(255,255,255,0.55); }
+
+/* ── COURSE DETAILS ── */
+.details-section {
+  max-width:860px; margin:0 auto; padding:6rem 2rem;
+}
+.details-section .sec-tag { color:var(--koa); border-color:var(--koa); }
+.details-section h2 {
+  font-family:var(--serif); font-size:clamp(1.6rem,3.5vw,2.4rem);
+  font-weight:400; line-height:1.35; margin-bottom:3rem; color:var(--deep);
+}
+.details-section h2 em { color:var(--koa); font-style:normal; }
+.detail-rows { display:grid; gap:0; }
+.detail-row {
+  display:grid; grid-template-columns:140px 1fr;
+  padding:1.2rem 0; border-bottom:1px solid rgba(74,48,15,0.12);
+  align-items:baseline; gap:1rem;
+}
+.detail-row:first-child { border-top:1px solid rgba(74,48,15,0.12); }
+.detail-label {
+  font-size:0.8rem; letter-spacing:0.15em; text-transform:uppercase;
+  color:var(--koa); font-weight:600;
+}
+.detail-val { font-size:1rem; line-height:1.75; color:var(--mid); }
+.detail-val strong { color:var(--deep); }
+
+/* ── CTA ── */
+.cta-section {
+  background:var(--deep); padding:6rem 2rem; text-align:center;
+}
+.cta-section h2 {
+  font-family:var(--serif); font-size:clamp(1.6rem,3.5vw,2.4rem);
+  font-weight:400; color:white; margin-bottom:1rem; line-height:1.35;
+}
+.cta-section h2 em { color:var(--honey); font-style:normal; }
+.cta-section p { color:rgba(255,255,255,0.6); margin-bottom:2.5rem; font-size:1rem; }
+.cta-back {
+  display:inline-block; margin-top:1.5rem;
+  color:rgba(255,255,255,0.45); font-size:0.85rem; text-decoration:none;
+  letter-spacing:0.1em; transition:color 0.2s;
+}
+.cta-back:hover { color:var(--honey); }
+
+/* ── FOOTER ── */
+footer {
+  background:var(--deep); padding:2rem; text-align:center;
+  border-top:1px solid rgba(212,168,64,0.1);
+  font-size:0.82rem; color:rgba(255,255,255,0.3); letter-spacing:0.1em;
+}
+
+/* ── REVEAL ── */
+.reveal { opacity:0; transform:translateY(28px); transition:opacity 0.7s ease, transform 0.7s ease; }
+.reveal.visible { opacity:1; transform:none; }
+
+@media(max-width:640px) {
+  .hero h1 { font-size:2rem; }
+  .story, .details-section { padding:3.5rem 1.2rem; }
+  .learn-section { padding:3.5rem 1.2rem; }
+  .cta-section { padding:3.5rem 1.2rem; }
+  .detail-row { grid-template-columns:1fr; gap:0.3rem; }
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a href="index.html" class="logo">歡唱 <span>Ukulele</span></a>
+  <div class="nav-links">
+    <a href="index.html#courses">課程總覽</a>
+    <a href="index.html#teacher">師資</a>
+    <a href="index.html#booking" class="nav-cta">預約體驗課</a>
+  </div>
+</nav>
+
+<!-- HERO -->
+<div class="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-overlay"></div>
+  <div class="hero-content">
+    <div class="hero-tag">特別課程 · 一堂就會彈唱</div>
+    <h1>老祖宗保佑我<br><em>烏克麗麗特別班</em></h1>
+    <blockquote class="hero-quote">
+      「比唱歌更美好的事，只有再多唱一首。」
+      <cite>— 艾拉·費茲傑拉 Ella Fitzgerald</cite>
+    </blockquote>
+    <p class="hero-sub">迪士尼《花木蘭》神曲 × 烏克麗麗<br>讓老祖宗看見你有多厲害</p>
+    <div class="hero-btns">
+      <a href="index.html#booking" class="btn-fill">立即預約特別班</a>
+      <a href="#story" class="btn-ghost">了解這首歌</a>
+    </div>
+  </div>
+</div>
+
+<!-- STORY -->
+<section class="story" id="story">
+  <div class="reveal">
+    <span class="sec-tag">歌曲故事</span>
+    <h2>一首歌，讓<em>老祖宗</em>都站起來為你鼓掌</h2>
+    <p>「老祖宗保佑我」來自迪士尼經典電影《花木蘭》的歌曲〈以妳為榮〉（Honors to Us All）。歌詞裡花木蘭祈求祖先庇佑，希望自己能為家族爭光——這份心情，每個人都懂。</p>
+    <p>近年台灣尾牙季，這首歌意外在網路上爆紅。網友發現，只要在尾牙前反覆聆聽，竟然接連傳出中大獎的好消息。大家笑稱這是「花家黑魔法」，讓《花木蘭》成了台灣的開運神曲。</p>
+    <div class="story-highlight">
+      「先生尾牙前一小時狂聽，抽獎最後直接手機放桌上播出來，同桌直接六個三萬、一個五萬、先生八萬。」<br>
+      <span style="font-size:0.85rem; color:var(--koa); letter-spacing:0.05em;">— 網友實測分享</span>
+    </div>
+    <p>現在，何不讓自己親手彈出這首歌？用烏克麗麗唱「老祖宗保佑我」，不只聽，還要彈——請出老祖宗，一起為你加油！</p>
+  </div>
+</section>
+
+<!-- WHAT YOU LEARN -->
+<div class="learn-section">
+  <div class="learn-inner">
+    <span class="sec-tag">這堂課你會學到</span>
+    <h2>一堂課，從<em>零基礎</em>到完整彈唱</h2>
+    <div class="learn-grid">
+      <div class="learn-card reveal">
+        <div class="learn-card-num">01</div>
+        <h3>和弦入門</h3>
+        <p>這首歌只需要幾個基本和弦，文文老師帶你從握琴姿勢開始，第一堂就能換弦流暢。</p>
+      </div>
+      <div class="learn-card reveal">
+        <div class="learn-card-num">02</div>
+        <h3>節奏掌握</h3>
+        <p>學會這首歌特有的節奏型，配合歌詞自然哼唱，彈唱同時進行不再手忙腳亂。</p>
+      </div>
+      <div class="learn-card reveal">
+        <div class="learn-card-num">03</div>
+        <h3>完整彈唱</h3>
+        <p>下課前你就能一邊彈、一邊唱出「老祖宗保佑我」，帶回家繼續練習，越唱越順。</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- DETAILS -->
+<section class="details-section">
+  <span class="sec-tag">課程細節</span>
+  <h2>特別班<em>資訊</em></h2>
+  <div class="detail-rows">
+    <div class="detail-row reveal">
+      <div class="detail-label">課程名稱</div>
+      <div class="detail-val">老祖宗保佑我 · 烏克麗麗特別班</div>
+    </div>
+    <div class="detail-row reveal">
+      <div class="detail-label">適合對象</div>
+      <div class="detail-val">完全零基礎歡迎，也歡迎已有基礎的學員</div>
+    </div>
+    <div class="detail-row reveal">
+      <div class="detail-label">上課地點</div>
+      <div class="detail-val">台北市 · 詳細地址報名後確認</div>
+    </div>
+    <div class="detail-row reveal">
+      <div class="detail-label">班級人數</div>
+      <div class="detail-val"><strong>小班制</strong>，每班上限 6 人</div>
+    </div>
+    <div class="detail-row reveal">
+      <div class="detail-label">體驗費用</div>
+      <div class="detail-val"><strong>NT$499</strong> · 來了再付，現金／LINE Pay／轉帳皆可</div>
+    </div>
+    <div class="detail-row reveal">
+      <div class="detail-label">攜帶器材</div>
+      <div class="detail-val">若沒有烏克麗麗，可先來體驗，老師備有示範用琴</div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<div class="cta-section">
+  <h2>讓老祖宗<em>親耳聽見</em>你彈這首歌</h2>
+  <p>傳 LINE 給文文老師，說「我要預約老祖宗特別班」就可以了。</p>
+  <a href="index.html#booking" class="btn-fill">立即預約 →</a><br>
+  <a href="index.html" class="cta-back">← 回到主頁</a>
+</div>
+
+<footer>
+  &copy; 2026 歡唱烏克麗麗 · 台北小班制
+</footer>
+
+<script>
+const observer = new IntersectionObserver(entries => {
+  entries.forEach(e => { if(e.isIntersecting) { e.target.classList.add('visible'); observer.unobserve(e.target); } });
+}, { threshold: 0.12 });
+document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+</script>
+</body>
+</html>
