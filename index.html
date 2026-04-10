@@ -455,11 +455,11 @@ footer a:hover { color:var(--honey); }
 
 /* ── RESPONSIVE ── */
 @media(max-width:768px) {
-  body { font-size:17px; }
+  body { font-size:16px; }
   nav { padding:0.9rem 1.2rem; }
   nav.scrolled { padding:0.7rem 1.2rem; }
   .nav-links { display:none; }
-  .logo { font-size:1.1rem; }
+  .logo { font-size:1.05rem; }
   .mobile-cta {
     display:block; position:fixed; bottom:1.2rem; left:50%; transform:translateX(-50%);
     z-index:400; background:var(--honey); color:var(--deep);
@@ -467,48 +467,67 @@ footer a:hover { color:var(--honey); }
     letter-spacing:0.05em; text-decoration:none; box-shadow:0 4px 20px rgba(212,168,64,0.5);
     white-space:nowrap;
   }
-  /* prevent overflow */
-  h1, h2, h3, .teacher-name { overflow-wrap: break-word; }
-  .hero-content { padding:1.4rem 1.2rem; }
-  .hero h1 { font-size:1.75rem; line-height:1.4; overflow-wrap: break-word; }
-  .hero h1 em { display:block; font-size:0.75em; margin-top:0.15em; letter-spacing:0.04em; }
-  .hero-sub { font-size:1rem; }
-  .hero-desc { font-size:0.95rem; margin-bottom:2rem; }
+
+  /* ── 防止溢出 ── */
+  h1, h2, h3, .teacher-name { overflow-wrap:break-word; }
+
+  /* ── HERO 層次 ── */
+  .hero-content { padding:1.6rem 1.3rem; }
+  .hero h1 { font-size:2.1rem; line-height:1.35; }
+  .hero h1 em { display:block; font-size:0.68em; margin-top:0.25em; letter-spacing:0.06em; font-weight:400; }
+  .hero-sub  { font-size:0.85rem; line-height:1.75; margin-bottom:0.8rem; }
+  .hero-desc { font-size:0.8rem;  line-height:1.8;  margin-bottom:1.8rem; }
   .hero-btns { flex-direction:column; align-items:center; gap:0.8rem; }
   .btn-fill, .btn-ghost { width:100%; max-width:300px; text-align:center; }
+
+  /* ── SECTION 層次 ── */
+  .sec-tag { font-size:0.65rem; }
+  h2 { font-size:1.65rem; line-height:1.3; }
+  h3 { font-size:1.1rem; }
+  .lead { font-size:0.88rem; line-height:1.8; margin-bottom:2rem; }
+
+  /* ── FACTS ── */
   .facts { grid-template-columns:repeat(2,1fr); padding:2rem 1rem; }
-  .fact-n { font-size:1rem; }
-  section { padding:3.5rem 1.2rem; }
+  .fact-n { font-size:0.95rem; }
+
+  /* ── SECTIONS PADDING ── */
+  section { padding:3.2rem 1.2rem; }
   .reasons-wrap, .courses-wrap, .schedule-wrap,
   .teacher-wrap, .faq-wrap, .contact-wrap,
-  .booking-section, .videos-wrap { padding:3.5rem 1.2rem; }
+  .booking-section, .videos-wrap { padding:3.2rem 1.2rem; }
+
+  /* ── IMMERSIVE ── */
   .immersive-bg, .courses-bg, .videos-bg, .teacher-bg { background-attachment:scroll; }
-  .immersive-content { padding:3.5rem 1.4rem; max-width:100%; }
-  .immersive-content h2 { font-size:1.45rem; }
-  .immersive-content p { font-size:0.98rem; }
+  .immersive-content { padding:3rem 1.4rem; max-width:100%; }
+  .immersive-content h2 { font-size:1.55rem; }
+  .immersive-content p  { font-size:0.9rem; line-height:1.9; }
+
+  /* ── CARDS / COURSES ── */
   .cards { grid-template-columns:1fr; gap:1rem; }
-  .card { padding:2rem 1.4rem; }
-  .special-box { grid-template-columns:1fr; text-align:center; padding:2rem 1.4rem; }
-  .special-box h3 { font-size:1.35rem; }
-  .special-wrap { padding:3rem 1.2rem; }
+  .card { padding:1.8rem 1.3rem; }
   .course-grid { grid-template-columns:1fr; }
-  .course-card { padding:1.8rem 1.4rem; }
+  .course-card { padding:1.6rem 1.3rem; }
   .vid-grid { grid-template-columns:1fr; gap:1.2rem; }
+
+  /* ── SCHEDULE ── */
   .schedule-grid { grid-template-columns:1fr !important; max-width:100% !important; }
-  .class-box { grid-template-columns:1fr; gap:0; padding:1.8rem 1.2rem; }
-  .teacher-name { font-size:1.45rem; line-height:1.4; }
-  .cred-item { padding:1rem 1.2rem; font-size:0.92rem; }
-  .faq-q { font-size:1.05rem; padding:1.2rem 0; }
+  .class-box { grid-template-columns:1fr; gap:0; padding:1.6rem 1.2rem; }
+
+  /* ── TEACHER ── */
+  .teacher-name { font-size:1.4rem; line-height:1.4; }
+  .cred-item { padding:0.9rem 1.1rem; font-size:0.88rem; }
+
+  /* ── FAQ / FORM ── */
+  .faq-q { font-size:1rem; padding:1.1rem 0; }
   .form-row { grid-template-columns:1fr; }
-  .booking-inner h2 { font-size:1.4rem; }
-  h2 { font-size:1.5rem; }
+  .booking-inner h2 { font-size:1.45rem; }
 }
 @media(max-width:400px) {
-  .hero h1 { font-size:1.35rem; }
-  h2 { font-size:1.35rem; }
-  .teacher-name { font-size:1.2rem; }
-  .facts { padding:1.5rem 0.8rem; }
-  .fact-n { font-size:0.9rem; }
+  .hero h1 { font-size:1.85rem; }
+  .hero h1 em { font-size:0.65em; }
+  h2 { font-size:1.45rem; }
+  .teacher-name { font-size:1.25rem; }
+  .facts { padding:1.4rem 0.8rem; }
 }
 </style>
 </head>
